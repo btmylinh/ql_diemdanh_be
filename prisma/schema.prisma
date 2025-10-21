@@ -1,0 +1,87 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model user {
+  id        Int      @id @default(autoincrement())
+  password  String   @db.VarChar(255)
+  email     String   @unique @db.VarChar(100)
+  role      String   @default("student") @db.VarChar(20)
+  name      String?  @db.VarChar(100)
+  mssv      String?  @unique @db.VarChar(20)
+  class     String?  @db.VarChar(50)
+  phone     String?  @db.VarChar(15)
+  createdAt DateTime @default(now()) @map("created_at")
+  status    Int      @default(2) @db.SmallInt
+
+  // Quan hệ
+  activities    activity[]   @relation("userActivities")
+  registrations registration[]
+  attendances   attendance[]
+  backups       backup[]
+}
+
+model activity {
+  id                   Int       @id @default(autoincrement())
+  name                 String    @db.VarChar(255)
+  description          String?   @db.Text
+  location             String?   @db.VarChar(255)
+  startTime            DateTime  @map("start_time")
+  endTime              DateTime  @map("end_time")
+  maxParticipants      Int?      @map("max_participants")
+  trainingPoints       Int?      @default(0) @map("training_points")
+  registrationDeadline DateTime? @map("registration_deadline")
+  createdBy            Int       @map("created_by")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  status               Int       @default(2) @db.SmallInt
+  qrCode               String?   @db.Text @map("qr_code")
+
+  // Quan hệ
+  creator      user         @relation("userActivities", fields: [createdBy], references: [id])
+  registrations registration[]
+  attendances   attendance[]
+}
+
+model registration {
+  id         Int      @id @default(autoincrement())
+  idactivity Int      @map("id_activity")
+  iduser     Int      @map("id_user")
+  createdAt  DateTime @default(now()) @map("created_at")
+  status     String   @default("1") @db.VarChar(1)
+
+  // Quan hệ
+  activity activity @relation(fields: [idactivity], references: [id])
+  user     user     @relation(fields: [iduser], references: [id])
+
+  @@unique([idactivity, iduser], name: "idactivity_iduser")
+}
+
+model attendance {
+  id         Int      @id @default(autoincrement())
+  idactivity Int      @map("id_activity")
+  iduser     Int      @map("id_user")
+  checkinTime DateTime? @map("checkin_time")
+  method     String?   @db.VarChar(20)
+
+  // Quan hệ
+  activity activity @relation(fields: [idactivity], references: [id])
+  user     user     @relation(fields: [iduser], references: [id])
+}
+
+model backup {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  path      String   @db.VarChar(255)
+  createdBy Int      @map("created_by")
+  createdAt DateTime @default(now()) @map("created_at")
+  fileSize  String?  @db.VarChar(50) @map("file_size")
+
+  // Quan hệ
+  creator user @relation(fields: [createdBy], references: [id])
+}
