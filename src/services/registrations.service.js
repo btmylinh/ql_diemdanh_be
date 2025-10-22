@@ -13,7 +13,7 @@ class RegistrationsService {
       if (isNaN(activityIdNum)) return { error: { code: 400, message: 'ID hoạt động không hợp lệ' } };
       const activity = await prisma.activity.findUnique({ where: { id: activityIdNum }, include: { _count: { select: { registrations: true } } } });
       if (!activity) return { error: { code: 404, message: 'Không tìm thấy hoạt động' } };
-      if (activity.status !== 2) return { error: { code: 400, message: 'Không thể đăng ký hoạt động ở trạng thái này' } };
+      if (activity.status !== 1) return { error: { code: 400, message: 'Chỉ có thể đăng ký hoạt động ở trạng thái "upcoming"' } };
       if (new Date() >= activity.startTime) return { error: { code: 400, message: 'Không thể đăng ký hoạt động đã bắt đầu' } };
       const activeRegistrationsCount = await prisma.registration.count({ where: { idactivity: activityIdNum, status: '1' } });
       if (activity.maxParticipants && activeRegistrationsCount >= activity.maxParticipants) return { error: { code: 409, message: 'Hoạt động đã đầy, không thể đăng ký thêm' } };

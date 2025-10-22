@@ -39,7 +39,7 @@ model activity {
   registrationDeadline DateTime? @map("registration_deadline")
   createdBy            Int       @map("created_by")
   createdAt            DateTime  @default(now()) @map("created_at")
-  status               Int       @default(2) @db.SmallInt
+  status               Int       @default(1) @db.SmallInt
   qrCode               String?   @db.Text @map("qr_code")
 
   // Quan hệ

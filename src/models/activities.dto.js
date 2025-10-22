@@ -37,6 +37,7 @@ class CreateActivityDTO {
       ? Number.parseInt(input.training_points)
       : 0;
     this.registration_deadline = input.registration_deadline ? new Date(input.registration_deadline) : undefined;
+    this.status = input.status !== undefined ? Number.parseInt(input.status) : undefined;
   }
 }
 

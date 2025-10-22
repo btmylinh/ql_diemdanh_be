@@ -194,3 +194,15 @@ exports.getActivityRegistrationStats = async (req, res) => {
     res.status(500).json({ message: 'Lỗi server' });
   }
 };
+
+// Tự động cập nhật trạng thái hoạt động theo thời gian
+exports.updateActivityStatusByTime = async (req, res) => {
+  try {
+    const result = await activitiesService.updateActivityStatusByTime();
+    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
+    res.json(result);
+  } catch (error) {
+    console.error('Update activity status by time error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};

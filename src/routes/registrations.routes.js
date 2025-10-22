@@ -7,15 +7,12 @@ router.use(authMiddleware);
 // Student có thể đăng ký và hủy đăng ký hoạt động
 router.post('/', studentMiddleware, ctl.register);
 router.get('/my', studentMiddleware, ctl.getMyRegistrations);
+// Đặt các route tĩnh trước khi khai báo route động
+router.get('/export', managerMiddleware, ctl.exportRegistrations);
+// Route động đặt SAU để tránh nuốt các route tĩnh như /export
 router.get('/:id', studentMiddleware, ctl.getById);
 router.delete('/:activityId', studentMiddleware, ctl.cancel);
 
-// Manager có thể quản lý tất cả đăng ký
-router.get('/', managerMiddleware, ctl.getAllRegistrations);
-router.patch('/:id/status', managerMiddleware, ctl.updateStatus);
-router.patch('/batch-status', managerMiddleware, ctl.batchUpdateStatus);
-router.delete('/:id', managerMiddleware, ctl.deleteRegistration);
-router.delete('/batch', managerMiddleware, ctl.batchDeleteRegistrations);
-router.get('/export', managerMiddleware, ctl.exportRegistrations);
+// Manager có thể xem tất cả đăng ký (chỉ đọc) - Đã xóa vì không cần thiết
 
 module.exports = router;

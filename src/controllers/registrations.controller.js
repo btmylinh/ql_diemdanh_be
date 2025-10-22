@@ -48,65 +48,8 @@ exports.getById = async (req, res) => {
   }
 };
 
-// Manager: Lấy tất cả đăng ký
-exports.getAllRegistrations = async (req, res) => {
-  try {
-    const result = await registrationsService.getAllRegistrations(req.query, req.user);
-    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
-    res.json(result);
-  } catch (error) {
-    console.error('Get all registrations error:', error);
-    res.status(500).json({ message: 'Lỗi server' });
-  }
-};
+// Manager: Lấy tất cả đăng ký - Đã xóa vì không cần thiết
 
-// Manager: Cập nhật trạng thái đăng ký
-exports.updateStatus = async (req, res) => {
-  try {
-    const result = await registrationsService.updateStatus(req.params.id, req.body, req.user);
-    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
-    res.json(result);
-  } catch (error) {
-    console.error('Update registration status error:', error);
-    res.status(500).json({ message: 'Lỗi server' });
-  }
-};
-
-// Manager: Cập nhật trạng thái hàng loạt
-exports.batchUpdateStatus = async (req, res) => {
-  try {
-    const result = await registrationsService.batchUpdateStatus(req.body, req.user);
-    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
-    res.json(result);
-  } catch (error) {
-    console.error('Batch update registration status error:', error);
-    res.status(500).json({ message: 'Lỗi server' });
-  }
-};
-
-// Manager: Xóa đăng ký
-exports.deleteRegistration = async (req, res) => {
-  try {
-    const result = await registrationsService.deleteRegistration(req.params.id, req.user);
-    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
-    res.json(result);
-  } catch (error) {
-    console.error('Delete registration error:', error);
-    res.status(500).json({ message: 'Lỗi server' });
-  }
-};
-
-// Manager: Xóa đăng ký hàng loạt
-exports.batchDeleteRegistrations = async (req, res) => {
-  try {
-    const result = await registrationsService.batchDeleteRegistrations(req.body, req.user);
-    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
-    res.json(result);
-  } catch (error) {
-    console.error('Batch delete registrations error:', error);
-    res.status(500).json({ message: 'Lỗi server' });
-  }
-};
 
 // Manager: Xuất đăng ký ra CSV
 exports.exportRegistrations = async (req, res) => {

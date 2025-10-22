@@ -16,7 +16,7 @@ class AttendancesService {
       const registration = await prisma.registration.findUnique({ where: { idactivity_iduser: { idactivity: activityId, iduser: userId } }, include: { activity: { select: { id: true, name: true, startTime: true, endTime: true, status: true } } } });
       if (!registration) return { error: { code: 400, message: 'Bạn chưa đăng ký tham gia hoạt động này' } };
       if (registration.status !== '1') return { error: { code: 400, message: 'Đăng ký của bạn đã bị hủy, không thể điểm danh' } };
-      if (registration.activity.status !== 2 && registration.activity.status !== 3) return { error: { code: 400, message: 'Hoạt động không còn hoạt động' } };
+      if (registration.activity.status !== 2) return { error: { code: 400, message: 'Chỉ có thể điểm danh khi hoạt động đang diễn ra' } };
       const now = new Date();
       if (now < registration.activity.startTime) return { error: { code: 400, message: 'Hoạt động chưa bắt đầu' } };
       if (now > registration.activity.endTime) return { error: { code: 400, message: 'Hoạt động đã kết thúc' } };
@@ -45,7 +45,7 @@ class AttendancesService {
       const registration = await prisma.registration.findUnique({ where: { idactivity_iduser: { idactivity: activityIdNum, iduser: userIdNum } } });
       if (!registration) return { error: { code: 400, message: 'Người dùng chưa đăng ký tham gia hoạt động này' } };
       if (registration.status !== '1') return { error: { code: 400, message: 'Đăng ký của người dùng đã bị hủy' } };
-      if (activity.status !== 2 && activity.status !== 3) return { error: { code: 400, message: 'Hoạt động không còn hoạt động' } };
+      if (activity.status !== 2) return { error: { code: 400, message: 'Chỉ có thể điểm danh khi hoạt động đang diễn ra' } };
       const existingAttendance = await prisma.attendance.findFirst({ where: { idactivity: activityIdNum, iduser: userIdNum } });
       if (existingAttendance) return { error: { code: 409, message: 'Người dùng đã điểm danh rồi', attendance: { id: existingAttendance.id, checkinTime: existingAttendance.checkinTime, method: existingAttendance.method } } };
       const attendance = await prisma.attendance.create({ data: { idactivity: activityIdNum, iduser: userIdNum, checkinTime: new Date(), method: 'manual' }, include: { activity: { select: { id: true, name: true, startTime: true, endTime: true, location: true } }, user: { select: { id: true, name: true, email: true, mssv: true, class: true } } } });

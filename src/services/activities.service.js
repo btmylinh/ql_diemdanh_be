@@ -147,7 +147,7 @@ class ActivitiesService {
   async create(input, user) {
     try {
       const dto = input instanceof CreateActivityDTO ? input : new CreateActivityDTO(input);
-      const { name, description, location, start_time, end_time, max_participants, training_points, registration_deadline } = dto;
+      const { name, description, location, start_time, end_time, max_participants, training_points, registration_deadline, status } = dto;
       if (!name) return { error: { code: 400, message: 'Tên hoạt động là bắt buộc' } };
       if (!start_time || !end_time) return { error: { code: 400, message: 'Thời gian bắt đầu và kết thúc là bắt buộc' } };
       const startTime = new Date(start_time);
@@ -162,13 +162,19 @@ class ActivitiesService {
         if (deadline < new Date()) return { error: { code: 400, message: 'Hạn chót đăng ký không được ở quá khứ' } };
       }
       
+      // Determine initial status: always start as upcoming (1)
+      let initialStatus = 1;
+      
+      // Note: We intentionally ignore provided status on creation.
+      // Status will auto-transition to 2 (ongoing) at start time via scheduler.
+
       const activity = await prisma.activity.create({
         data: {
           name, description, location, startTime, endTime,
           maxParticipants: max_participants ? parseInt(max_participants) : null,
           trainingPoints: training_points ? parseInt(training_points) : 0,
           registrationDeadline: registration_deadline ? new Date(registration_deadline) : null,
-          createdBy: parseInt(user.sub), status: 2,
+          createdBy: parseInt(user.sub), status: initialStatus,
         },
         include: { creator: { select: { id: true, name: true, email: true } } },
       });
@@ -193,6 +199,7 @@ class ActivitiesService {
       if (existingActivity.createdBy !== parseInt(user.sub) && user.role !== 'admin') return { error: { code: 403, message: 'Không có quyền chỉnh sửa hoạt động này' } };
       const dto = input instanceof UpdateActivityDTO ? input : new UpdateActivityDTO(input);
       const { name, description, location, start_time, end_time, max_participants, training_points, registration_deadline, status } = dto;
+      
       const updateData = {};
       if (name) updateData.name = name;
       if (description !== undefined) updateData.description = description;
@@ -255,12 +262,12 @@ class ActivitiesService {
       const dto = input instanceof ActivityStatusDTO ? input : new ActivityStatusDTO(input);
       const { status } = dto;
       if (isNaN(activityId)) return { error: { code: 400, message: 'ID không hợp lệ' } };
-      if (!status || ![1, 2, 3, 4].includes(parseInt(status))) return { error: { code: 400, message: 'Status phải là 1 (draft), 2 (open), 3 (closed), hoặc 4 (cancelled)' } };
+      if (!status || ![1, 2, 3, 4].includes(parseInt(status))) return { error: { code: 400, message: 'Status phải là 1 (upcoming), 2 (ongoing), 3 (completed), hoặc 4 (cancelled)' } };
       const existingActivity = await prisma.activity.findUnique({ where: { id: activityId } });
       if (!existingActivity) return { error: { code: 404, message: 'Không tìm thấy hoạt động' } };
       if (existingActivity.createdBy !== parseInt(user.sub) && user.role !== 'admin') return { error: { code: 403, message: 'Không có quyền thay đổi trạng thái hoạt động này' } };
       const updated = await prisma.activity.update({ where: { id: activityId }, data: { status: parseInt(status) }, include: { creator: { select: { id: true, name: true, email: true } } } });
-      const statusNames = { 1: 'draft', 2: 'open', 3: 'closed', 4: 'cancelled' };
+      const statusNames = { 1: 'upcoming', 2: 'ongoing', 3: 'completed', 4: 'cancelled' };
       return { message: `Cập nhật trạng thái hoạt động thành ${statusNames[parseInt(status)]}`, activity: { id: updated.id, name: updated.name, status: updated.status, status_name: statusNames[updated.status] } };
     } catch (error) {
       return { error: { code: 500, message: 'Lỗi server' } };
@@ -275,7 +282,23 @@ class ActivitiesService {
       const skip = (pageNum - 1) * limitNum;
       const where = { createdBy: user.sub, ...(status ? { status: parseInt(status) } : {}) };
       const total = await prisma.activity.count({ where });
-      const activities = await prisma.activity.findMany({ where, skip, take: limitNum, orderBy: { [sortBy]: sortOrder }, include: { _count: { select: { registrations: true, attendances: true } } } });
+      const activities = await prisma.activity.findMany({ 
+        where, 
+        skip, 
+        take: limitNum, 
+        orderBy: [
+          { status: 'asc' }, // Status 2 (upcoming) sẽ lên đầu
+          { [sortBy]: sortOrder }
+        ], 
+        include: { 
+          _count: { 
+            select: { 
+              registrations: { where: { status: '1' } }, // Only count successful registrations
+              attendances: true 
+            } 
+          } 
+        } 
+      });
       const result = activities.map(a => ({ id: a.id, name: a.name, description: a.description, location: a.location, start_time: a.startTime, end_time: a.endTime, max_participants: a.maxParticipants, status: a.status, qr_code: a.qrCode, created_at: a.createdAt, registered_count: a._count.registrations, attendance_count: a._count.attendances, is_full: a.maxParticipants ? a._count.registrations >= a.maxParticipants : false }));
       return { activities: result, pagination: { page: pageNum, limit: limitNum, total, totalPages: Math.ceil(total / limitNum) } };
     } catch (error) {
@@ -379,7 +402,7 @@ class ActivitiesService {
       if (!validation.valid) return { error: { code: 400, message: 'QR code không hợp lệ' } };
       const activity = await prisma.activity.findUnique({ where: { id: validation.data.activityId }, select: { id: true, name: true, startTime: true, endTime: true, status: true } });
       if (!activity) return { error: { code: 404, message: 'Không tìm thấy hoạt động' } };
-      if (activity.status !== 2 && activity.status !== 3) return { error: { code: 400, message: 'Hoạt động không còn hoạt động' } };
+      if (activity.status !== 2) return { error: { code: 400, message: 'Chỉ có thể tạo/kiểm tra QR khi hoạt động đang diễn ra' } };
       return { message: 'QR code hợp lệ', activity, qrData: validation.data };
     } catch (error) {
       return { error: { code: 500, message: 'Lỗi server' } };
@@ -522,6 +545,40 @@ class ActivitiesService {
       };
     } catch (error) {
       return { error: { code: 500, message: 'Lỗi server' } };
+    }
+  }
+
+  // Auto-update activity status based on time
+  async updateActivityStatusByTime() {
+    try {
+      const now = new Date();
+      
+      // Update activities that should be ongoing (status 1 -> 2)
+      const upcomingToOngoing = await prisma.activity.updateMany({
+        where: {
+          status: 1, // upcoming
+          startTime: { lte: now },
+          endTime: { gt: now }
+        },
+        data: { status: 2 } // ongoing
+      });
+      
+      // Update activities that should be completed (status 2 -> 3)
+      const ongoingToCompleted = await prisma.activity.updateMany({
+        where: {
+          status: 2, // ongoing only
+          endTime: { lte: now }
+        },
+        data: { status: 3 } // completed
+      });
+      
+      return {
+        upcoming_to_ongoing: upcomingToOngoing.count,
+        ongoing_to_completed: ongoingToCompleted.count
+      };
+    } catch (error) {
+      console.error('Error updating activity status:', error);
+      return { error: { code: 500, message: 'Lỗi cập nhật trạng thái hoạt động' } };
     }
   }
 }

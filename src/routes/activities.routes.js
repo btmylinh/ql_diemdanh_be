@@ -9,10 +9,12 @@ router.get('/', studentMiddleware, ctl.list);
 router.get('/search', studentMiddleware, ctl.search);
 router.get('/search/stats', studentMiddleware, ctl.getSearchStats);
 router.get('/my-registered', studentMiddleware, ctl.getMyRegisteredActivities);
-router.get('/:id', studentMiddleware, ctl.getById);
 
-// Manager có thể xem hoạt động của mình
+// Manager có thể xem hoạt động của mình (Đặt trước route động "/:id" để tránh xung đột)
 router.get('/my', managerMiddleware, ctl.getMyActivities);
+
+// Route động đặt sau cùng để không "ăn" các route tĩnh như "/my"
+router.get('/:id', studentMiddleware, ctl.getById);
 
 // Chỉ manager/admin mới có thể tạo, sửa, xóa
 router.post('/', managerMiddleware, ctl.create);
@@ -29,5 +31,6 @@ router.post('/validate-qr', studentMiddleware, ctl.validateQRCode);
 router.get('/:id/registrations', managerMiddleware, ctl.getActivityRegistrations);
 router.get('/:id/registrations/export', managerMiddleware, ctl.exportActivityRegistrations);
 router.get('/:id/registrations/stats', managerMiddleware, ctl.getActivityRegistrationStats);
+router.post('/update-status-by-time', managerMiddleware, ctl.updateActivityStatusByTime);
 
 module.exports = router;
