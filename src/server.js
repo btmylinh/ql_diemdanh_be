@@ -6,7 +6,7 @@ const app = express();
 app.use(cors({ origin: '*', credentials: true })); // có thể siết chặt sau
 app.use(express.json());
 
-app.get('/', (_, res) => res.json({ ok: true }));
+app.get('/', (_, res) => res.json({ ok: true, message: 'Server is running' }));
 
 // Manual trigger for testing
 app.post('/test-update-status', async (req, res) => {
@@ -23,6 +23,8 @@ app.use('/activities', require('./routes/activities.routes'));
 app.use('/registrations', require('./routes/registrations.routes'));
 app.use('/attendances', require('./routes/attendances.routes'));
 app.use('/users', require('./routes/users.routes'));
+app.use('/reports', require('./routes/reports.routes'));
+// removed session backup routes
 
 // Auto-update activity status every 5 minutes
 setInterval(async () => {
@@ -39,5 +41,5 @@ setInterval(async () => {
   }
 }, 5 * 60 * 1000); // 5 minutes
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`API on http://localhost:${PORT}`));

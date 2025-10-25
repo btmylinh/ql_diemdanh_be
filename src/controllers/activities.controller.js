@@ -206,3 +206,43 @@ exports.updateActivityStatusByTime = async (req, res) => {
     res.status(500).json({ message: 'Lỗi server' });
   }
 };
+
+// Admin-only: Get all activities (no pagination for admin)
+exports.getAllActivities = async (req, res) => {
+  try {
+    const result = await activitiesService.getAllActivities(req.query);
+    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
+    res.json(result);
+  } catch (error) {
+    console.error('Get all activities error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
+// Admin-only: Bulk delete activities
+exports.bulkDeleteActivities = async (req, res) => {
+  try {
+    const { activity_ids } = req.body;
+    if (!activity_ids || !Array.isArray(activity_ids)) {
+      return res.status(400).json({ message: 'activity_ids phải là một mảng' });
+    }
+    const result = await activitiesService.bulkDeleteActivities(activity_ids);
+    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
+    res.json(result);
+  } catch (error) {
+    console.error('Bulk delete activities error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
+// Admin-only: Export all activities
+exports.exportAllActivities = async (req, res) => {
+  try {
+    const result = await activitiesService.exportAllActivities(req.query);
+    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
+    res.json(result);
+  } catch (error) {
+    console.error('Export all activities error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};

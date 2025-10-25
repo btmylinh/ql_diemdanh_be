@@ -33,4 +33,9 @@ router.get('/:id/registrations/export', managerMiddleware, ctl.exportActivityReg
 router.get('/:id/registrations/stats', managerMiddleware, ctl.getActivityRegistrationStats);
 router.post('/update-status-by-time', managerMiddleware, ctl.updateActivityStatusByTime);
 
+// Admin-only routes for bulk operations
+router.get('/admin/all', adminMiddleware, ctl.getAllActivities);
+router.post('/bulk-delete', adminMiddleware, ctl.bulkDeleteActivities);
+router.post('/export', adminMiddleware, ctl.exportAllActivities);
+
 module.exports = router;

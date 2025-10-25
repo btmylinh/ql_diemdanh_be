@@ -581,6 +581,88 @@ class ActivitiesService {
       return { error: { code: 500, message: 'Lỗi cập nhật trạng thái hoạt động' } };
     }
   }
+
+  // Admin-only: Get all activities without pagination
+  async getAllActivities(query) {
+    try {
+      const dto = query instanceof ActivitiesListQueryDTO ? query : new ActivitiesListQueryDTO(query);
+      const { q, status, location, start_date, end_date, capacity_min, capacity_max, creator_id, sortBy, sortOrder } = dto;
+      const whereConditions = [];
+      if (status) whereConditions.push({ status: parseInt(status) });
+      if (location) whereConditions.push({ location: { contains: location, mode: 'insensitive' } });
+      if (start_date) whereConditions.push({ startTime: { gte: new Date(start_date) } });
+      if (end_date) whereConditions.push({ endTime: { lte: new Date(end_date) } });
+      if (capacity_min) whereConditions.push({ maxParticipants: { gte: parseInt(capacity_min) } });
+      if (capacity_max) whereConditions.push({ maxParticipants: { lte: parseInt(capacity_max) } });
+      if (creator_id) whereConditions.push({ createdBy: parseInt(creator_id) });
+      if (q) {
+        whereConditions.push({ OR: [ { name: { contains: q, mode: 'insensitive' } }, { description: { contains: q, mode: 'insensitive' } }, { location: { contains: q, mode: 'insensitive' } } ] });
+      }
+      const where = whereConditions.length > 0 ? { AND: whereConditions } : {};
+      const activities = await prisma.activity.findMany({
+        where,
+        orderBy: { [sortBy]: sortOrder },
+        include: {
+          creator: { select: { id: true, name: true, email: true, mssv: true, class: true } },
+          _count: { select: { registrations: { where: { status: '1' } }, attendances: true } },
+        },
+      });
+      const result = activities.map(a => ({
+        id: a.id,
+        name: a.name,
+        description: a.description,
+        location: a.location,
+        start_time: a.startTime,
+        end_time: a.endTime,
+        max_participants: a.maxParticipants,
+        training_points: a.trainingPoints,
+        registration_deadline: a.registrationDeadline,
+        status: a.status,
+        qr_code: a.qrCode,
+        created_by: a.createdBy,
+        creator: a.creator,
+        created_at: a.createdAt,
+        registered_count: a._count.registrations,
+        attendance_count: a._count.attendances,
+      }));
+      return { activities: result };
+    } catch (error) {
+      return { error: { code: 500, message: 'Lỗi server' } };
+    }
+  }
+
+  // Admin-only: Bulk delete activities
+  async bulkDeleteActivities(activityIds) {
+    try {
+      const result = await prisma.activity.deleteMany({
+        where: { id: { in: activityIds } }
+      });
+      return { data: { deletedCount: result.count } };
+    } catch (error) {
+      console.error('Bulk delete activities error:', error);
+      return { error: { code: 500, message: 'Lỗi xóa hàng loạt hoạt động' } };
+    }
+  }
+
+  // Admin-only: Export all activities
+  async exportAllActivities(query) {
+    try {
+      const result = await this.getAllActivities(query);
+      if (result.error) return result;
+      
+      // Format data for export
+      const exportData = {
+        activities: result.activities,
+        exportDate: new Date().toISOString(),
+        totalCount: result.activities.length,
+      };
+      
+      return { data: exportData };
+    } catch (error) {
+      console.error('Export activities error:', error);
+      return { error: { code: 500, message: 'Lỗi xuất dữ liệu hoạt động' } };
+    }
+  }
 }
 
 module.exports = new ActivitiesService();
