@@ -15,5 +15,7 @@ router.put('/me', authMiddleware, ctl.updateMe);
 router.delete('/:id', authMiddleware, adminMiddleware, ctl.delete);
 router.patch('/:id/soft-delete', authMiddleware, adminMiddleware, ctl.softDelete);
 router.patch('/:id/restore', authMiddleware, adminMiddleware, ctl.restore);
+router.put('/:id/reset-password', authMiddleware, adminMiddleware, ctl.resetPassword);
+router.patch('/:id/status', authMiddleware, adminMiddleware, ctl.changeStatus);
 
 module.exports = router;

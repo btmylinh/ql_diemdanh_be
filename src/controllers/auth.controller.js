@@ -32,3 +32,14 @@ exports.me = async (req, res) => {
     res.status(500).json({ message: 'Lỗi server' });
   }
 };
+
+exports.changePassword = async (req, res) => {
+  try {
+    const result = await authService.changePassword(req.body, req.user);
+    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
+    res.json(result);
+  } catch (error) {
+    console.error('Change password error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};

@@ -231,7 +231,7 @@ class ActivitiesService {
         training_points: updated.trainingPoints, registration_deadline: updated.registrationDeadline,
         status: updated.status, qr_code: updated.qrCode, created_by: updated.createdBy, creator: updated.creator, created_at: updated.createdAt 
       };
-      return { message: 'Cập nhật hoạt động thành công', activity: result };
+      return { message: 'Cập nhật hoạt động thành công', data: result };
     } catch (error) {
       return { error: { code: 500, message: 'Lỗi server' } };
     }
@@ -244,10 +244,20 @@ class ActivitiesService {
       const existingActivity = await prisma.activity.findUnique({ where: { id: activityId } });
       if (!existingActivity) return { error: { code: 404, message: 'Không tìm thấy hoạt động' } };
       if (existingActivity.createdBy !== parseInt(user.sub) && user.role !== 'admin') return { error: { code: 403, message: 'Không có quyền xóa hoạt động này' } };
-      const registrationCount = await prisma.registration.count({ where: { idactivity: activityId } });
-      if (registrationCount > 0) return { error: { code: 400, message: 'Không thể xóa hoạt động đã có người đăng ký. Vui lòng hủy hoạt động thay vì xóa.' } };
+      
+      // First delete all registrations for this activity
+      await prisma.registration.deleteMany({
+        where: { idactivity: activityId }
+      });
+      
+      // Then delete all attendances for this activity
+      await prisma.attendance.deleteMany({
+        where: { idactivity: activityId }
+      });
+      
+      // Finally delete the activity
       await prisma.activity.delete({ where: { id: activityId } });
-      return { data: true };
+      return { message: 'Xóa hoạt động thành công' };
     } catch (error) {
       if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2003') {
         return { error: { code: 400, message: 'Không thể xóa hoạt động có dữ liệu liên quan' } };
@@ -262,13 +272,13 @@ class ActivitiesService {
       const dto = input instanceof ActivityStatusDTO ? input : new ActivityStatusDTO(input);
       const { status } = dto;
       if (isNaN(activityId)) return { error: { code: 400, message: 'ID không hợp lệ' } };
-      if (!status || ![1, 2, 3, 4].includes(parseInt(status))) return { error: { code: 400, message: 'Status phải là 1 (upcoming), 2 (ongoing), 3 (completed), hoặc 4 (cancelled)' } };
+      if (!status || ![0, 1, 2, 3].includes(parseInt(status))) return { error: { code: 400, message: 'Status phải là 0 (mở đăng ký), 1 (đang diễn ra), 2 (đã kết thúc), hoặc 3 (đã hủy)' } };
       const existingActivity = await prisma.activity.findUnique({ where: { id: activityId } });
       if (!existingActivity) return { error: { code: 404, message: 'Không tìm thấy hoạt động' } };
       if (existingActivity.createdBy !== parseInt(user.sub) && user.role !== 'admin') return { error: { code: 403, message: 'Không có quyền thay đổi trạng thái hoạt động này' } };
       const updated = await prisma.activity.update({ where: { id: activityId }, data: { status: parseInt(status) }, include: { creator: { select: { id: true, name: true, email: true } } } });
-      const statusNames = { 1: 'upcoming', 2: 'ongoing', 3: 'completed', 4: 'cancelled' };
-      return { message: `Cập nhật trạng thái hoạt động thành ${statusNames[parseInt(status)]}`, activity: { id: updated.id, name: updated.name, status: updated.status, status_name: statusNames[updated.status] } };
+      const statusNames = { 0: 'mở đăng ký', 1: 'đang diễn ra', 2: 'đã kết thúc', 3: 'đã hủy' };
+      return { message: `Cập nhật trạng thái hoạt động thành ${statusNames[parseInt(status)]}`, data: { id: updated.id, name: updated.name, status: updated.status, status_name: statusNames[updated.status] } };
     } catch (error) {
       return { error: { code: 500, message: 'Lỗi server' } };
     }
@@ -634,10 +644,21 @@ class ActivitiesService {
   // Admin-only: Bulk delete activities
   async bulkDeleteActivities(activityIds) {
     try {
+      // First delete all registrations for these activities
+      await prisma.registration.deleteMany({
+        where: { idactivity: { in: activityIds } }
+      });
+      
+      // Then delete all attendances for these activities
+      await prisma.attendance.deleteMany({
+        where: { idactivity: { in: activityIds } }
+      });
+      
+      // Finally delete the activities
       const result = await prisma.activity.deleteMany({
         where: { id: { in: activityIds } }
       });
-      return { data: { deletedCount: result.count } };
+      return { message: `Đã xóa thành công ${result.count} hoạt động` };
     } catch (error) {
       console.error('Bulk delete activities error:', error);
       return { error: { code: 500, message: 'Lỗi xóa hàng loạt hoạt động' } };

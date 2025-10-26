@@ -112,4 +112,30 @@ exports.restore = async (req, res) => {
   }
 };
 
+// Reset mật khẩu người dùng
+exports.resetPassword = async (req, res) => {
+  try {
+    const result = await usersService.resetPassword(req.params.id, req.body.password);
+    respond(res, result);
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
+// Thay đổi trạng thái người dùng (0: không hoạt động, 1: hoạt động, 2: khóa)
+exports.changeStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
+    if (![0, 1, 2].includes(status)) {
+      return res.status(400).json({ message: 'Trạng thái không hợp lệ. Chỉ chấp nhận: 0 (không hoạt động), 1 (hoạt động), 2 (khóa)' });
+    }
+    const result = await usersService.changeStatus(req.params.id, status);
+    respond(res, result);
+  } catch (error) {
+    console.error('Change status error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
 

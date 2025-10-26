@@ -20,11 +20,14 @@ class UsersService {
 
   async list(query) {
     const f = query instanceof UserFiltersDTO ? query : new UserFiltersDTO(query);
-    const { page, limit, search, created_from, created_to, orderBy, orderDir } = f;
+    const { page, limit, search, role, created_from, created_to, orderBy, orderDir } = f;
     const skip = (page - 1) * limit;
     const whereAND = [];
     if (created_from) whereAND.push({ createdAt: { gte: new Date(created_from) } });
     if (created_to) whereAND.push({ createdAt: { lte: new Date(created_to) } });
+    if (role && role !== 'all') {
+      whereAND.push({ role: role });
+    }
     if (search) {
       whereAND.push({
         OR: [
@@ -103,8 +106,45 @@ class UsersService {
     if (isNaN(userId)) return { error: { code: 400, message: 'ID không hợp lệ' } };
     const existingUser = await prisma.user.findUnique({ where: { id: userId } });
     if (!existingUser) return { error: { code: 404, message: 'Không tìm thấy người dùng' } };
-    const updated = await prisma.user.update({ where: { id: userId }, data: { status: 2 } });
+    const updated = await prisma.user.update({ where: { id: userId }, data: { status: 1 } });
     return { data: sanitizeUser(updated) };
+  }
+
+  async resetPassword(id, newPassword) {
+    const userId = parseInt(id);
+    if (isNaN(userId)) return { error: { code: 400, message: 'ID không hợp lệ' } };
+    if (!newPassword || newPassword.length < 6) return { error: { code: 400, message: 'Mật khẩu phải có ít nhất 6 ký tự' } };
+    
+    const existingUser = await prisma.user.findUnique({ where: { id: userId } });
+    if (!existingUser) return { error: { code: 404, message: 'Không tìm thấy người dùng' } };
+    
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    const updated = await prisma.user.update({ 
+      where: { id: userId }, 
+      data: { password: hashedPassword } 
+    });
+    
+    return { message: 'Reset mật khẩu thành công' };
+  }
+
+  async changeStatus(id, status) {
+    const userId = parseInt(id);
+    if (isNaN(userId)) return { error: { code: 400, message: 'ID không hợp lệ' } };
+    if (![0, 1, 2].includes(status)) return { error: { code: 400, message: 'Trạng thái không hợp lệ' } };
+    
+    const existingUser = await prisma.user.findUnique({ where: { id: userId } });
+    if (!existingUser) return { error: { code: 404, message: 'Không tìm thấy người dùng' } };
+    
+    const statusNames = { 0: 'không hoạt động', 1: 'hoạt động', 2: 'khóa tài khoản' };
+    const updated = await prisma.user.update({ 
+      where: { id: userId }, 
+      data: { status } 
+    });
+    
+    return { 
+      message: `Thay đổi trạng thái thành công: ${statusNames[status]}`,
+      data: sanitizeUser(updated)
+    };
   }
 }
 

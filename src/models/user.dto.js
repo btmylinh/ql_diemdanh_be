@@ -24,10 +24,11 @@ class UpdateUserDTO {
 }
 
 class UserFiltersDTO {
-  constructor({ page = 1, limit = 10, q, search, created_from, created_to, orderBy = 'createdAt', orderDir = 'desc' } = {}) {
+  constructor({ page = 1, limit = 10, q, search, role, created_from, created_to, orderBy = 'createdAt', orderDir = 'desc' } = {}) {
     this.page = parseInt(page);
     this.limit = parseInt(limit);
     this.search = search || q;
+    this.role = role;
     this.created_from = created_from;
     this.created_to = created_to;
     this.orderBy = orderBy;

@@ -6,6 +6,7 @@ const { authMiddleware, adminMiddleware } = require('../middlewares/auth');
 router.post('/register', ctl.register);
 router.post('/login', ctl.login);
 router.get('/me', authMiddleware, ctl.me);
+router.put('/change-password', authMiddleware, ctl.changePassword);
 
 // Chỉ admin mới có thể tạo manager/admin
 router.post('/register-manager', adminMiddleware, ctl.register);

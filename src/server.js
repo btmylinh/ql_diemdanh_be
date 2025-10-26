@@ -3,8 +3,15 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin: '*', credentials: true })); // có thể siết chặt sau
+app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
+
+// Middleware để ghi log URL mỗi khi được gọi
+app.use((req, res, next) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] ${req.method} ${req.originalUrl}`);
+  next();
+});
 
 app.get('/', (_, res) => res.json({ ok: true, message: 'Server is running' }));
 
@@ -26,20 +33,26 @@ app.use('/users', require('./routes/users.routes'));
 app.use('/reports', require('./routes/reports.routes'));
 // removed session backup routes
 
-// Auto-update activity status every 5 minutes
+// Auto-update activity status every 1 second
+let lastUpdateResult = null;
 setInterval(async () => {
   try {
     const activitiesService = require('./services/activities.service');
     const result = await activitiesService.updateActivityStatusByTime();
+    
+    // Chỉ ghi log khi có thay đổi hoặc có lỗi
+    const hasChanged = JSON.stringify(result) !== JSON.stringify(lastUpdateResult);
+    
     if (result.error) {
       console.error('Auto-update activity status error:', result.error.message);
-    } else {
-      console.log('Auto-updated activity status:', result);
+    } else if (hasChanged) {
+      console.log(`[${new Date().toISOString()}] Auto-updated activity status:`, result);
+      lastUpdateResult = result;
     }
   } catch (error) {
     console.error('Auto-update activity status error:', error);
   }
-}, 5 * 60 * 1000); // 5 minutes
+}, 1000); // 1 second
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`API on http://localhost:${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`API on http://localhost:${PORT}`));

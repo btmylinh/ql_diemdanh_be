@@ -1,7 +1,7 @@
 // Manager API Tests
 const axios = require('axios');
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:4000';
 const managerCredentials = { email: 'manager@example.com', password: '123456' };
 let authToken = '';
 

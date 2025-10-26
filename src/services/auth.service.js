@@ -101,6 +101,48 @@ class AuthService {
       return { error: { code: 500, message: 'Lỗi server' } };
     }
   }
+
+  async changePassword(input, user) {
+    try {
+      const { currentPassword, newPassword } = input;
+
+      if (newPassword.length < 6) {
+        return { error: { code: 400, message: 'Mật khẩu mới phải có ít nhất 6 ký tự' } };
+      }
+
+      // Lấy thông tin user từ database
+      const dbUser = await prisma.user.findUnique({ where: { id: user.sub } });
+      if (!dbUser) {
+        return { error: { code: 404, message: 'Không tìm thấy người dùng' } };
+      }
+
+      // Kiểm tra mật khẩu hiện tại
+      const isValidPassword = await bcrypt.compare(currentPassword, dbUser.password);
+      if (!isValidPassword) {
+        return { error: { code: 400, message: 'Mật khẩu hiện tại không đúng' } };
+      }
+
+      // Kiểm tra mật khẩu mới không trùng với mật khẩu cũ
+      const isSamePassword = await bcrypt.compare(newPassword, dbUser.password);
+      if (isSamePassword) {
+        return { error: { code: 400, message: 'Mật khẩu mới phải khác mật khẩu hiện tại' } };
+      }
+
+      // Hash mật khẩu mới
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+      // Cập nhật mật khẩu
+      await prisma.user.update({
+        where: { id: user.sub },
+        data: { password: hashedPassword }
+      });
+
+      return { message: 'Đổi mật khẩu thành công' };
+    } catch (e) {
+      console.error('Change password error:', e);
+      return { error: { code: 500, message: 'Lỗi server' } };
+    }
+  }
 }
 
 module.exports = new AuthService();

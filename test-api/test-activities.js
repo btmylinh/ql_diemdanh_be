@@ -1,7 +1,7 @@
 // Activities API Tests
 const axios = require('axios');
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:4000';
 
 const testActivity = {
   name: 'Test Activity 2024',
