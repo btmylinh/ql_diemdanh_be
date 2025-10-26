@@ -1,47 +1,49 @@
-const svc = require('../services/reports.service');
+const reportsService = require('../services/reports.service');
 
-module.exports = {
-  async overview(req, res) {
-    try {
-      const start = svc.coerceDate(req.query.start);
-      const end = svc.coerceDate(req.query.end);
-      const data = await svc.getOverview({ start, end });
-      res.json({ success: true, data });
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  },
-
-  async activitiesStatus(req, res) {
-    try {
-      const data = await svc.activitiesByStatus();
-      res.json({ success: true, data });
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  },
-
-  async registrationsTrend(req, res) {
-    try {
-      const start = svc.coerceDate(req.query.start);
-      const end = svc.coerceDate(req.query.end);
-      const interval = req.query.interval || 'day';
-      const data = await svc.registrationsTrend({ start, end, interval });
-      res.json({ success: true, data });
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  },
-
-  async topActivities(req, res) {
-    try {
-      const limit = Number(req.query.limit || 10);
-      const data = await svc.topActivities({ limit });
-      res.json({ success: true, data });
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  },
+// Lấy thống kê tổng quan
+exports.getOverview = async (req, res) => {
+  try {
+    const data = await reportsService.getOverview();
+    res.json({ data });
+  } catch (error) {
+    console.error('Get overview error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
 };
 
+// Lấy xu hướng đăng ký
+exports.getRegistrationsTrend = async (req, res) => {
+  try {
+    const { start, end } = req.query;
+    const data = await reportsService.getRegistrationsTrend(start, end);
+    res.json({ data });
+  } catch (error) {
+    console.error('Get registrations trend error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
 
+// Lấy hoạt động theo trạng thái
+exports.getActivitiesByStatus = async (req, res) => {
+  try {
+    const { start, end } = req.query;
+    const data = await reportsService.getActivitiesByStatus(start, end);
+    res.json({ data });
+  } catch (error) {
+    console.error('Get activities by status error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
+// Lấy top hoạt động
+exports.getTopActivities = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit || '10');
+    const { start, end } = req.query;
+    const data = await reportsService.getTopActivities(limit, start, end);
+    res.json({ data });
+  } catch (error) {
+    console.error('Get top activities error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};

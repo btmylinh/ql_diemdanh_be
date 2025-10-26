@@ -1,0 +1,508 @@
+{
+  "id": "backup_2025-10-26T23-48-06-047Z",
+  "fileName": "backup_2025-10-26T23-48-06-047Z.json",
+  "createdAt": "2025-10-26T23:48:06.268Z",
+  "metadata": {
+    "totalActivities": 9,
+    "totalUsers": 19,
+    "totalRegistrations": 5,
+    "totalAttendances": 0
+  },
+  "data": {
+    "activities": [
+      {
+        "id": 45,
+        "name": "Mini hackathon IoT",
+        "description": "Thi phát triển mô hình IoT trong 6 giờ, đánh giá theo tiêu chí sáng tạo.",
+        "location": "Xưởng IoT",
+        "startTime": "2025-11-04T01:30:00.000Z",
+        "endTime": "2025-11-07T14:30:00.000Z",
+        "maxParticipants": 60,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Hội thảo AI căn bản",
+        "description": "Giới thiệu trí tuệ nhân tạo và các ứng dụng thực tế trong doanh nghiệp.",
+        "location": "Hội trường A1",
+        "startTime": "2025-10-25T08:30:00.000Z",
+        "endTime": "2025-10-25T10:30:00.000Z",
+        "maxParticipants": 150,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Cuộc thi Lập trình ACM nội bộ",
+        "description": "Thi lập trình theo đội 3 người, format ICPC.",
+        "location": "Nhà C, Phòng 301-305",
+        "startTime": "2025-10-28T08:00:00.000Z",
+        "endTime": "2025-10-28T12:00:00.000Z",
+        "maxParticipants": 90,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Talkshow Sự nghiệp Data Engineer",
+        "description": "Lộ trình nghề nghiệp, kỹ năng cần có và case thực tế.",
+        "location": "Hội trường C",
+        "startTime": "2025-11-05T09:30:00.000Z",
+        "endTime": "2025-11-05T11:30:00.000Z",
+        "maxParticipants": 200,
+        "trainingPoints": 7,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 36,
+        "name": "dsfghfghsd",
+        "description": "hgffsdfg",
+        "location": "dfgh",
+        "startTime": "2025-10-21T15:10:00.000Z",
+        "endTime": "2025-10-31T15:10:00.000Z",
+        "maxParticipants": 45,
+        "trainingPoints": 3,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T13:29:32.084Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Ngày hội tuyển dụng IT",
+        "description": "Giao lưu doanh nghiệp và phỏng vấn trực tiếp.",
+        "location": "Sân khấu trung tâm",
+        "startTime": "2025-10-21T14:20:00.000Z",
+        "endTime": "2025-11-01T16:30:00.000Z",
+        "maxParticipants": 500,
+        "trainingPoints": 6,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Workshop Flutter nâng cao",
+        "description": "Thực hành state management với Riverpod và tối ưu performance.",
+        "location": "Phòng Lab 204",
+        "startTime": "2025-10-26T13:30:00.000Z",
+        "endTime": "2025-10-26T17:00:00.000Z",
+        "maxParticipants": 40,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 2,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 2,
+          "name": "Admin User",
+          "email": "admin@example.com"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Workshop Docker & DevOps căn bản linh chi",
+        "description": "Containerization, CI/CD pipeline cơ bản và thực hành.",
+        "location": "Lab DevOps 101",
+        "startTime": "2025-11-03T13:00:00.000Z",
+        "endTime": "2025-11-03T17:00:00.000Z",
+        "maxParticipants": 35,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 3,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 3,
+          "name": "Manager User",
+          "email": "manager@example.com"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Seminar An toàn thông tinttt",
+        "description": "Các kỹ thuật tấn công phổ biến và cách phòng chống ở mức hệ thống.",
+        "location": "Hội trường B",
+        "startTime": "2025-10-29T09:00:00.000Z",
+        "endTime": "2025-10-29T11:00:00.000Z",
+        "maxParticipants": 120,
+        "trainingPoints": 8,
+        "registrationDeadline": null,
+        "createdBy": 2,
+        "createdAt": "2025-10-21T20:52:09.680Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 2,
+          "name": "Admin User",
+          "email": "admin@example.com"
+        }
+      }
+    ],
+    "users": [
+      {
+        "id": 3,
+        "password": "$2b$10$K288o.9nuHoxM/aBINavMuC/q6ikW7gCc18a/9LPiBM/55FBeR.Hy",
+        "email": "manager@example.com",
+        "role": "manager",
+        "name": "Manager User",
+        "mssv": "TEST001",
+        "class": "TEST_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T09:28:48.655Z",
+        "status": 1
+      },
+      {
+        "id": 19,
+        "password": "$2b$10$d08s2wNPhtd.egljGCZUIeHSkiRAQjmY16RZygHtC/bHaRkUCaXSa",
+        "email": "student@test.com",
+        "role": "student",
+        "name": "Student User",
+        "mssv": "SV001",
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-26T20:44:52.478Z",
+        "status": 2
+      },
+      {
+        "id": 15,
+        "password": "$2b$10$uXyB6r50gPMlLpavpBI07eEeymq3xtbuBrxEHGQfwstZO3O4q9u/W",
+        "email": "simpleuser1760275498556@example.com",
+        "role": "student",
+        "name": "Simple Test User",
+        "mssv": "ST1760275498556",
+        "class": "ST_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T13:24:59.023Z",
+        "status": 0
+      },
+      {
+        "id": 17,
+        "password": "$2b$10$cCPkKWX3LFq8RVfnmLllK.bt/xYguLPbspqEvO7rrSfUvqPHoXR1e",
+        "email": "linh1@gmail.com",
+        "role": "manager",
+        "name": "linh1w",
+        "mssv": "24234231",
+        "class": "cnpm1",
+        "phone": "036616008",
+        "createdAt": "2025-10-14T11:04:26.219Z",
+        "status": 2
+      },
+      {
+        "id": 1,
+        "password": "$2b$10$v2P/4TpgLEnUFLgf/cjj/e1NopUXb1mp.5BII2KaRhGHOxfDIxcUK",
+        "email": "linhbuithimy14@gmail.com",
+        "role": "student",
+        "name": "My Linh",
+        "mssv": "1150080145",
+        "class": "11cntt4",
+        "phone": "0768264334",
+        "createdAt": "2025-09-25T09:13:06.998Z",
+        "status": 1
+      },
+      {
+        "id": 2,
+        "password": "$2b$10$vKdaCliq9ag25O3M4zcrZerhJDzbSM23GiDoiVSb5IalwvaWnxaWK",
+        "email": "admin@example.com",
+        "role": "admin",
+        "name": "Admin User",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-12T08:52:57.648Z",
+        "status": 1
+      },
+      {
+        "id": 14,
+        "password": "$2b$10$O233.L2Vsjf9TboQjtQi4uX1b3eV0veO6fFl0PCoy4X51qNhPa5/G",
+        "email": "simpleadmin1760275402467@example.com",
+        "role": "admin",
+        "name": "Simple Admin",
+        "mssv": "SA1760275402467",
+        "class": "SA_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T13:23:24.633Z",
+        "status": 0
+      },
+      {
+        "id": 4,
+        "password": "$2b$10$xYGUsw2H1qa1DuGMrXbPieDRKB8mkkGfgaM2676Rt6QGylOAO5ME.",
+        "email": "qrtest@example.com",
+        "role": "student",
+        "name": "QR Test User",
+        "mssv": "QR001",
+        "class": "QR_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T09:52:36.489Z",
+        "status": 1
+      },
+      {
+        "id": 5,
+        "password": "$2b$10$xYAiz8JS3F/pujZU6rFDwepJ8aY5Ncs9U5hpRKuVfWe8cAUbXQRW2",
+        "email": "anotheruser@example.com",
+        "role": "student",
+        "name": "Another User",
+        "mssv": "AU001",
+        "class": "AU_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T09:52:37.005Z",
+        "status": 1
+      },
+      {
+        "id": 6,
+        "password": "$2b$10$JvnDvxamsaDndqT0y6bECe2Yu4ySS/QR4WI.XijIHXjVJtmxaRPh2",
+        "email": "simpletest@example.com",
+        "role": "student",
+        "name": "Simple Test User",
+        "mssv": "ST001",
+        "class": "ST_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T09:59:54.198Z",
+        "status": 1
+      },
+      {
+        "id": 7,
+        "password": "$2b$10$7JoxyCo9Dm/0KK3ANkCLAOxg2qRPuKm6Ryg0stZqpVDb2Y7cw9eD2",
+        "email": "qrtest2@example.com",
+        "role": "student",
+        "name": "QR Test User 2",
+        "mssv": "QR002",
+        "class": "QR_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T10:00:41.644Z",
+        "status": 1
+      },
+      {
+        "id": 8,
+        "password": "$2b$10$B9blA0wbmmSVwIuPYegUyum5QXLDcxw0DEt/I96FP.J5XgmluS1Py",
+        "email": "anotheruser2@example.com",
+        "role": "student",
+        "name": "Another User 2",
+        "mssv": "AU002",
+        "class": "AU_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T10:01:43.696Z",
+        "status": 1
+      },
+      {
+        "id": 9,
+        "password": "$2b$10$qb8TcLxQrnFham6zBwknRezNv5luF2I.jX1ANPNpc79ZzY4dxPz1G",
+        "email": "attendanceuser@example.com",
+        "role": "student",
+        "name": "Attendance Test User",
+        "mssv": "AT001",
+        "class": "AT_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T10:59:04.106Z",
+        "status": 1
+      },
+      {
+        "id": 10,
+        "password": "$2b$10$cM5Fufs1uKu0u6Dh6fRrd.PlS/D4MB9EYVfC7h65es2fYr9AgZJuG",
+        "email": "attendanceadmin@example.com",
+        "role": "admin",
+        "name": "Attendance Admin",
+        "mssv": "AA001",
+        "class": "AA_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T10:59:04.480Z",
+        "status": 1
+      },
+      {
+        "id": 11,
+        "password": "$2b$10$eTP/8JY3toly6iaaWCIsHObtjn2TICPMuqqI3P4/eDcEc9rnYs7oy",
+        "email": "notregistered@example.com",
+        "role": "student",
+        "name": "Not Registered User",
+        "mssv": "NR001",
+        "class": "NR_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T10:59:05.860Z",
+        "status": 1
+      },
+      {
+        "id": 12,
+        "password": "$2b$10$TpX0JsVWPsKhl/AbL8d/WudepuciyYCzK1ih/G2DGLsVt8B9ERT7S",
+        "email": "debuguser@example.com",
+        "role": "student",
+        "name": "Debug User",
+        "mssv": "DU001",
+        "class": "DU_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T13:17:51.516Z",
+        "status": 1
+      },
+      {
+        "id": 13,
+        "password": "$2b$10$YiyJl3LMGUtP6mxZzXQoU.IhS1pd96Hz8xevkDNkSITm8PqteJZL.",
+        "email": "simpleuser1760275402467@example.com",
+        "role": "manager",
+        "name": "Simple Test User",
+        "mssv": "ST1760275402467",
+        "class": "ST_CLASS",
+        "phone": null,
+        "createdAt": "2025-10-12T13:23:24.340Z",
+        "status": 1
+      },
+      {
+        "id": 16,
+        "password": "$2b$10$/7yDwfhOQtIfGAVXUsjEQe3IVsCMeg.ooeTB4KiByXJaVMV/hiuQC",
+        "email": "simpleadmin1760275498556@example.com",
+        "role": "student",
+        "name": "Simple Admin3w",
+        "mssv": "SA17602754985563",
+        "class": "SA_CLASS3",
+        "phone": "5236465463",
+        "createdAt": "2025-10-12T13:24:59.274Z",
+        "status": 1
+      },
+      {
+        "id": 18,
+        "password": "$2b$10$eZ2W0QesFAWJ3ysobHX30eQnskMXjkpoyL6LjAATcfBzr4axWVRd2",
+        "email": "linhqwe@fmail.com",
+        "role": "manager",
+        "name": "linh",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-26T20:38:16.205Z",
+        "status": 2
+      }
+    ],
+    "registrations": [
+      {
+        "id": 10,
+        "idactivity": 40,
+        "iduser": 1,
+        "createdAt": "2025-10-25T15:18:58.564Z",
+        "status": "1",
+        "user": {
+          "id": 1,
+          "name": "My Linh",
+          "email": "linhbuithimy14@gmail.com"
+        },
+        "activity": {
+          "id": 40,
+          "name": "Cuộc thi Lập trình ACM nội bộ"
+        }
+      },
+      {
+        "id": 12,
+        "idactivity": 43,
+        "iduser": 1,
+        "createdAt": "2025-10-25T15:28:41.269Z",
+        "status": "3",
+        "user": {
+          "id": 1,
+          "name": "My Linh",
+          "email": "linhbuithimy14@gmail.com"
+        },
+        "activity": {
+          "id": 43,
+          "name": "Workshop Docker & DevOps căn bản linh chi"
+        }
+      },
+      {
+        "id": 11,
+        "idactivity": 41,
+        "iduser": 1,
+        "createdAt": "2025-10-25T15:20:06.735Z",
+        "status": "3",
+        "user": {
+          "id": 1,
+          "name": "My Linh",
+          "email": "linhbuithimy14@gmail.com"
+        },
+        "activity": {
+          "id": 41,
+          "name": "Seminar An toàn thông tinttt"
+        }
+      },
+      {
+        "id": 13,
+        "idactivity": 44,
+        "iduser": 1,
+        "createdAt": "2025-10-25T16:32:06.106Z",
+        "status": "1",
+        "user": {
+          "id": 1,
+          "name": "My Linh",
+          "email": "linhbuithimy14@gmail.com"
+        },
+        "activity": {
+          "id": 44,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 9,
+        "idactivity": 39,
+        "iduser": 1,
+        "createdAt": "2025-10-25T15:18:36.917Z",
+        "status": "3",
+        "user": {
+          "id": 1,
+          "name": "My Linh",
+          "email": "linhbuithimy14@gmail.com"
+        },
+        "activity": {
+          "id": 39,
+          "name": "Workshop Flutter nâng cao"
+        }
+      }
+    ],
+    "attendances": []
+  }
+}

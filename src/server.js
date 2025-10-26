@@ -31,7 +31,7 @@ app.use('/registrations', require('./routes/registrations.routes'));
 app.use('/attendances', require('./routes/attendances.routes'));
 app.use('/users', require('./routes/users.routes'));
 app.use('/reports', require('./routes/reports.routes'));
-// removed session backup routes
+app.use('/backup', require('./routes/backup.routes'));
 
 // Auto-update activity status every 1 second
 let lastUpdateResult = null;

@@ -1,90 +1,169 @@
 const prisma = require('../lib/prisma');
 
-function coerceDate(value, fallback) {
-  const d = value ? new Date(value) : null;
-  return Number.isFinite(d?.getTime?.()) ? d : fallback;
-}
+class ReportsService {
+  // Lấy dữ liệu thống kê tổng quan
+  async getOverview() {
+    try {
+      // Thống kê hoạt động
+      const totalActivities = await prisma.activity.count();
+      const activeActivities = await prisma.activity.count({ where: { status: 1 } });
+      const upcomingActivities = await prisma.activity.count({ where: { status: 0 } });
+      const completedActivities = await prisma.activity.count({ where: { status: 2 } });
 
-async function getOverview({ start, end }) {
-  const whereActivity = {};
-  if (start || end) {
-    whereActivity.createdAt = {};
-    if (start) whereActivity.createdAt.gte = start;
-    if (end) whereActivity.createdAt.lte = end;
-  }
+      // Thống kê người dùng
+      const totalUsers = await prisma.user.count();
+      const adminUsers = await prisma.user.count({ where: { role: 'admin' } });
+      const managerUsers = await prisma.user.count({ where: { role: 'manager' } });
+      const studentUsers = await prisma.user.count({ where: { role: 'student' } });
 
-  const [
-    totalUsers,
-    adminUsers,
-    managerUsers,
-    studentUsers,
-    totalActivities,
-    activeActivities,
-    completedActivities,
-    upcomingActivities,
-    totalRegistrations,
-    totalAttendances,
-  ] = await Promise.all([
-    prisma.user.count(),
-    prisma.user.count({ where: { role: 'admin' } }),
-    prisma.user.count({ where: { role: 'manager' } }),
-    prisma.user.count({ where: { role: 'student' } }),
-    prisma.activity.count({ where: whereActivity }),
-    prisma.activity.count({ where: { status: 1 } }),
-    prisma.activity.count({ where: { status: 0 } }),
-    prisma.activity.count({ where: { startTime: { gt: new Date() } } }),
-    prisma.registration.count(),
-    prisma.attendance.count(),
-  ]);
+      // Thống kê đăng ký
+      const totalRegistrations = await prisma.registration.count();
+
+      // Thống kê điểm danh
+      const totalAttendances = await prisma.attendance.count();
 
   return {
-    users: { total: totalUsers, admin: adminUsers, manager: managerUsers, student: studentUsers },
-    activities: { total: totalActivities, active: activeActivities, completed: completedActivities, upcoming: upcomingActivities },
-    registrations: { total: totalRegistrations },
-    attendances: { total: totalAttendances },
-  };
-}
+        activities: {
+          total: totalActivities,
+          active: activeActivities,
+          upcoming: upcomingActivities,
+          completed: completedActivities,
+        },
+        users: {
+          total: totalUsers,
+          admin: adminUsers,
+          manager: managerUsers,
+          student: studentUsers,
+        },
+        registrations: {
+          total: totalRegistrations,
+        },
+        attendances: {
+          total: totalAttendances,
+        },
+      };
+    } catch (error) {
+      console.error('Error getting overview stats:', error);
+      throw error;
+    }
+  }
 
-async function activitiesByStatus() {
-  const groups = await prisma.activity.groupBy({ by: ['status'], _count: { _all: true } });
-  return groups.map(g => ({ status: g.status, count: g._count._all }));
-}
+  // Lấy xu hướng đăng ký theo thời gian
+  async getRegistrationsTrend(startDate, endDate) {
+    try {
+      const where = {};
+      
+      if (startDate || endDate) {
+        where.createdAt = {};
+        if (startDate) where.createdAt.gte = new Date(startDate);
+        if (endDate) where.createdAt.lte = new Date(endDate);
+      }
 
-async function registrationsTrend({ start, end, interval = 'day' }) {
-  // For simplicity, return counts grouped by day using JS after fetch
+      const registrations = await prisma.registration.findMany({
+        where,
+        select: {
+          createdAt: true,
+        },
+      });
+
+      // Nhóm theo ngày
+      const grouped = {};
+      registrations.forEach(reg => {
+        const date = reg.createdAt.toISOString().split('T')[0];
+        grouped[date] = (grouped[date] || 0) + 1;
+      });
+
+      return Object.entries(grouped).map(([date, count]) => ({
+        date,
+        count,
+      }));
+    } catch (error) {
+      console.error('Error getting registrations trend:', error);
+      throw error;
+    }
+  }
+
+  // Lấy hoạt động theo trạng thái
+  async getActivitiesByStatus(startDate, endDate) {
+    try {
   const where = {};
-  if (start || end) {
+      
+      if (startDate || endDate) {
     where.createdAt = {};
-    if (start) where.createdAt.gte = start;
-    if (end) where.createdAt.lte = end;
+        if (startDate) where.createdAt.gte = new Date(startDate);
+        if (endDate) where.createdAt.lte = new Date(endDate);
+      }
+
+      const statuses = await prisma.activity.groupBy({
+        by: ['status'],
+        where,
+        _count: true,
+      });
+
+      return statuses.map(item => ({
+        status: item.status,
+        count: item._count,
+        label: this.getStatusLabel(item.status),
+      }));
+    } catch (error) {
+      console.error('Error getting activities by status:', error);
+      throw error;
+    }
   }
-  const rows = await prisma.registration.findMany({ where, select: { createdAt: true } });
-  const buckets = {};
-  for (const r of rows) {
-    const d = new Date(r.createdAt);
-    const key = d.toISOString().slice(0, 10);
-    buckets[key] = (buckets[key] || 0) + 1;
+
+  // Lấy top hoạt động được đăng ký nhiều nhất
+  async getTopActivities(limit = 10, startDate, endDate) {
+    try {
+      const where = {};
+      
+      if (startDate || endDate) {
+        where.createdAt = {};
+        if (startDate) where.createdAt.gte = new Date(startDate);
+        if (endDate) where.createdAt.lte = new Date(endDate);
+      }
+
+      const activities = await prisma.activity.findMany({
+        where,
+        include: {
+          _count: {
+            select: {
+              registrations: {
+                where: {
+                  status: '1', // Chỉ đếm đăng ký đã duyệt
+                },
+              },
+            },
+          },
+        },
+        take: limit,
+        orderBy: {
+          registrations: {
+            _count: 'desc',
+          },
+        },
+      });
+
+      return activities.map(activity => ({
+        id: activity.id,
+        name: activity.name,
+        registrations: activity._count.registrations,
+      }));
+    } catch (error) {
+      console.error('Error getting top activities:', error);
+      throw error;
+    }
   }
-  return Object.entries(buckets)
-    .sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([date, count]) => ({ date, count }));
+
+  // Helper method
+  getStatusLabel(status) {
+    switch (status) {
+      case 0: return 'Mở đăng ký';
+      case 1: return 'Đang diễn ra';
+      case 2: return 'Đã kết thúc';
+      case 3: return 'Đã hủy';
+      default: return 'Không xác định';
+    }
+  }
 }
 
-async function topActivities({ limit = 10 }) {
-  // Count registrations per activity
-  const regs = await prisma.registration.groupBy({ by: ['idactivity'], _count: { _all: true }, orderBy: { _count: { _all: 'desc' } }, take: Number(limit) });
-  const ids = regs.map(r => r.idactivity);
-  const activities = await prisma.activity.findMany({ where: { id: { in: ids } }, select: { id: true, name: true } });
-  const map = Object.fromEntries(activities.map(a => [a.id, a.name]));
-  return regs.map(r => ({ id: r.idactivity, name: map[r.idactivity] || `#${r.idactivity}`, registrations: r._count._all }));
-}
-
-module.exports = {
-  coerceDate,
-  getOverview,
-  activitiesByStatus,
-  registrationsTrend,
-  topActivities,
-};
-
-
+module.exports = new ReportsService();

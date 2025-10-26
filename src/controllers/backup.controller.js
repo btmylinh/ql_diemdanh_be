@@ -20,7 +20,8 @@ exports.getDashboardStats = async (req, res) => {
 // Tạo bản sao lưu dữ liệu
 exports.createBackup = async (req, res) => {
   try {
-    const result = await backupService.createBackup();
+    const userId = req.user.sub; // Lấy user ID từ JWT token
+    const result = await backupService.createBackup(userId);
     respond(res, result, 201);
   } catch (error) {
     console.error('Create backup error:', error);
@@ -35,6 +36,18 @@ exports.restoreBackup = async (req, res) => {
     respond(res, result);
   } catch (error) {
     console.error('Restore backup error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
+// Khôi phục dữ liệu từ backup ID
+exports.restoreBackupFromId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await backupService.restoreBackupFromId(id);
+    respond(res, result);
+  } catch (error) {
+    console.error('Restore backup from ID error:', error);
     res.status(500).json({ message: 'Lỗi server' });
   }
 };
@@ -61,14 +74,3 @@ exports.deleteBackup = async (req, res) => {
   }
 };
 
-// Xuất báo cáo
-exports.exportReport = async (req, res) => {
-  try {
-    const { type, startDate, endDate } = req.query;
-    const result = await backupService.exportReport(type, { startDate, endDate });
-    respond(res, result);
-  } catch (error) {
-    console.error('Export report error:', error);
-    res.status(500).json({ message: 'Lỗi server' });
-  }
-};

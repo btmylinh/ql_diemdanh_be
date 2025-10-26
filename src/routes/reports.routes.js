@@ -1,20 +1,20 @@
 const router = require('express').Router();
+const { authMiddleware, adminMiddleware } = require('../middlewares/auth');
 const ctl = require('../controllers/reports.controller');
-const { authMiddleware, adminMiddleware, managerMiddleware } = require('../middlewares/auth');
 
-// Reports accessible to admin and manager
 router.use(authMiddleware);
-router.use((req, res, next) => {
-  // allow if admin or manager
-  if (req.user?.role === 'admin' || req.user?.role === 'manager') return next();
-  return res.status(403).json({ success: false, error: 'Forbidden' });
-});
+router.use(adminMiddleware); // Chỉ admin mới có quyền xem báo cáo
 
-router.get('/overview', ctl.overview);
-router.get('/activities-status', ctl.activitiesStatus);
-router.get('/registrations-trend', ctl.registrationsTrend);
-router.get('/top-activities', ctl.topActivities);
+// Lấy thống kê tổng quan
+router.get('/overview', ctl.getOverview);
+
+// Lấy xu hướng đăng ký
+router.get('/registrations-trend', ctl.getRegistrationsTrend);
+
+// Lấy hoạt động theo trạng thái
+router.get('/activities-status', ctl.getActivitiesByStatus);
+
+// Lấy top hoạt động
+router.get('/top-activities', ctl.getTopActivities);
 
 module.exports = router;
-
-
