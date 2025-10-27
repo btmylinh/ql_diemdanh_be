@@ -353,22 +353,35 @@ class BackupService {
   async listBackups() {
     try {
       const backups = await prisma.backup.findMany({
-        include: {
-          creator: { select: { id: true, name: true, email: true } },
-        },
         orderBy: { createdAt: "desc" },
       });
 
+      // Get unique user IDs
+      const userIds = [...new Set(backups.map(b => b.createdBy).filter(Boolean))];
+      
+      // Fetch user info if there are any users
+      let userMap = {};
+      if (userIds.length > 0) {
+        const users = await prisma.user.findMany({
+          where: { id: { in: userIds } },
+          select: { id: true, name: true, email: true },
+        });
+        userMap = Object.fromEntries(users.map(u => [u.id, u]));
+      }
+
       return {
         success: true,
-        data: backups.map((b) => ({
-          id: b.id,
-          name: b.name,
-          path: b.path,
-          fileSize: b.fileSize,
-          createdAt: b.createdAt,
-          createdBy: b.creator?.name || b.creator?.email || null,
-        })),
+        data: backups.map((b) => {
+          const user = userMap[b.createdBy];
+          return {
+            id: b.id,
+            name: b.name,
+            path: b.path,
+            fileSize: b.fileSize,
+            createdAt: b.createdAt,
+            createdBy: user ? (user.name || user.email) : `User ID: ${b.createdBy}`,
+          };
+        }),
       };
     } catch (error) {
       console.error("List backups error:", error);
@@ -432,11 +445,11 @@ class BackupService {
   // ===== Danger: clear all =====
   async clearAllData() {
     await prisma.$transaction([
-      prisma.backup.deleteMany(), // Xóa backup trước vì có foreign key reference đến user
       prisma.attendance.deleteMany(),
       prisma.registration.deleteMany(),
       prisma.activity.deleteMany(),
       prisma.user.deleteMany(),
+      prisma.backup.deleteMany(),
     ]);
   }
 }

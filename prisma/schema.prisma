@@ -14,7 +14,7 @@ model user {
   email     String   @unique @db.VarChar(100)
   role      String   @default("student") @db.VarChar(20)
   name      String?  @db.VarChar(100)
-  mssv      String?  @unique @db.VarChar(20)
+  mssv      String?  @db.VarChar(20)
   class     String?  @db.VarChar(50)
   phone     String?  @db.VarChar(15)
   createdAt DateTime @default(now()) @map("created_at")
@@ -24,7 +24,6 @@ model user {
   activities    activity[]   @relation("userActivities")
   registrations registration[]
   attendances   attendance[]
-  backups       backup[]
 }
 
 model activity {
@@ -81,7 +80,35 @@ model backup {
   createdBy Int      @map("created_by")
   createdAt DateTime @default(now()) @map("created_at")
   fileSize  String?  @db.VarChar(50) @map("file_size")
+}
 
-  // Quan hệ
-  creator user @relation(fields: [createdBy], references: [id])
+model periodic_report {
+  id                  Int       @id @default(autoincrement())
+  reportDate           DateTime  @map("report_date")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  
+  // Hoạt động
+  totalActivities      Int       @default(0) @map("total_activities")
+  activitiesCreated    Int       @default(0) @map("activities_created")
+  activeActivities     Int       @default(0) @map("active_activities")
+  completedActivities  Int       @default(0) @map("completed_activities")
+  
+  // Người dùng
+  totalUsers           Int       @default(0) @map("total_users")
+  newUsers             Int       @default(0) @map("new_users")
+  activeUsers          Int       @default(0) @map("active_users")
+  adminUsers           Int       @default(0) @map("admin_users")
+  managerUsers         Int       @default(0) @map("manager_users")
+  studentUsers         Int       @default(0) @map("student_users")
+  
+  // Đăng ký
+  registrationsToday   Int       @default(0) @map("registrations_today")
+  totalRegistrations   Int       @default(0) @map("total_registrations")
+  
+  // Điểm danh
+  attendancesToday     Int       @default(0) @map("attendances_today")
+  totalAttendances     Int       @default(0) @map("total_attendances")
+  
+  // Top activities (JSON array)
+  topActivities        String?   @db.Text @map("top_activities")
 }

@@ -54,5 +54,27 @@ setInterval(async () => {
   }
 }, 1000); // 1 second
 
+// Auto-generate daily report once per day at 23:59
+let lastGeneratedReportDate = null;
+setInterval(async () => {
+  try {
+    const reportsService = require('./services/reports.service');
+    const now = new Date();
+    
+    // Chỉ generate 1 lần mỗi ngày
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    if (lastGeneratedReportDate && lastGeneratedReportDate.getTime() === today.getTime()) {
+      return; // Đã generate rồi
+    }
+
+    // Generate report cho hôm nay
+    await reportsService.generateDailyReport();
+    lastGeneratedReportDate = today;
+    console.log(`[${now.toISOString()}] Daily report generated for ${today.toISOString().split('T')[0]}`);
+  } catch (error) {
+    console.error('Auto-generate daily report error:', error);
+  }
+}, 60000); // Check every minute
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, '0.0.0.0', () => console.log(`API on http://localhost:${PORT}`));

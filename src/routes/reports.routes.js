@@ -17,4 +17,13 @@ router.get('/activities-status', ctl.getActivitiesByStatus);
 // Lấy top hoạt động
 router.get('/top-activities', ctl.getTopActivities);
 
+// Lấy báo cáo định kỳ
+router.get('/periodic', ctl.getPeriodicReport);
+
+// Lấy danh sách báo cáo định kỳ đã lưu
+router.get('/periodic/stored', ctl.getStoredPeriodicReports);
+
+// Tạo báo cáo ngày
+router.post('/periodic/generate', ctl.generateDailyReport);
+
 module.exports = router;

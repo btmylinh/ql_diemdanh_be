@@ -4,18 +4,51 @@ const { CreateUserDTO, UpdateUserDTO, UserFiltersDTO, sanitizeUser } = require('
 
 class UsersService {
   async create(input) {
-    const dto = new CreateUserDTO(input);
-    const { email, password, name, mssv, class: clazz, phone, role } = dto;
-    if (!email || !password || !name) return { error: { code: 400, message: 'Thiếu trường bắt buộc' } };
-    const existed = await prisma.user.findUnique({ where: { email } });
-    if (existed) return { error: { code: 409, message: 'Email đã được sử dụng' } };
-    if (mssv) {
-      const existedMssv = await prisma.user.findUnique({ where: { mssv } });
-      if (existedMssv) return { error: { code: 409, message: 'MSSV đã được sử dụng' } };
+    try {
+      const dto = new CreateUserDTO(input);
+      const { email, password, name, mssv, class: clazz, phone, role } = dto;
+      if (!email || !password || !name) return { error: { code: 400, message: 'Thiếu trường bắt buộc' } };
+      
+      const existed = await prisma.user.findUnique({ where: { email } });
+      if (existed) return { error: { code: 409, message: 'Email đã được sử dụng' } };
+      
+      // Chỉ check MSSV nếu có giá trị và không rỗng
+      if (mssv && mssv.trim() !== '') {
+        const existedMssv = await prisma.user.findFirst({ where: { mssv: mssv.trim() } });
+        if (existedMssv) return { error: { code: 409, message: 'MSSV đã được sử dụng' } };
+      }
+      
+      const hashed = await bcrypt.hash(password, 10);
+      // Nếu mssv rỗng thì set null
+      const cleanMssv = mssv && mssv.trim() !== '' ? mssv.trim() : null;
+      
+      const user = await prisma.user.create({ 
+        data: { 
+          email, 
+          password: hashed, 
+          name, 
+          mssv: cleanMssv, 
+          class: clazz || null, 
+          phone: phone || null, 
+          role: role || 'student',
+          status: 1  // Mặc định active
+        } 
+      });
+      return { data: sanitizeUser(user) };
+    } catch (error) {
+      console.error('Error creating user:', error);
+      if (error.code === 'P2002') {
+        // Unique constraint violation
+        if (error.meta?.target?.includes('email')) {
+          return { error: { code: 409, message: 'Email đã được sử dụng' } };
+        }
+        if (error.meta?.target?.includes('mssv')) {
+          return { error: { code: 409, message: 'MSSV đã được sử dụng' } };
+        }
+        return { error: { code: 409, message: 'Dữ liệu đã tồn tại' } };
+      }
+      throw error;
     }
-    const hashed = await bcrypt.hash(password, 10);
-    const user = await prisma.user.create({ data: { email, password: hashed, name, mssv, class: clazz, phone, role } });
-    return { data: sanitizeUser(user) };
   }
 
   async list(query) {
