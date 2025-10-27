@@ -24,6 +24,18 @@ exports.checkinManual = async (req, res) => {
   }
 };
 
+// Điểm danh bằng mã code (sinh viên)
+exports.checkinByCode = async (req, res) => {
+  try {
+    const result = await attendancesService.checkinByCode(req.body, req.user);
+    if (result.error) return res.status(result.error.code).json({ message: result.error.message });
+    res.json(result);
+  } catch (error) {
+    console.error('Checkin by code error:', error);
+    res.status(500).json({ message: 'Lỗi server' });
+  }
+};
+
 // Lấy danh sách điểm danh của tôi
 exports.getMyAttendances = async (req, res) => {
   try {

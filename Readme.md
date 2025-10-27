@@ -64,6 +64,7 @@ Backend API cho hệ thống quản lý điểm danh sinh viên tham gia các ho
    # Development mode
    npm run dev
    
+   
    # Production mode
    npm start
    ```

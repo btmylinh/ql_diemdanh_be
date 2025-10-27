@@ -223,6 +223,9 @@ class BackupService {
         }
       });
 
+      // Reset PostgreSQL sequences để đảm bảo ID tiếp theo không bị xung đột
+      await this.resetSequences();
+
       return {
         success: true,
         message: "Khôi phục dữ liệu thành công",
@@ -253,8 +256,8 @@ class BackupService {
       const { activities = [], users = [], registrations = [], attendances = [] } =
         backupData.data;
 
-      // Xóa dữ liệu cũ trước khi import
-      await this.clearAllData();
+      // Xóa dữ liệu cũ trước khi import (giữ lại backup records)
+      await this.clearDataKeepBackups();
 
       // Thực hiện theo transaction để đảm bảo tính toàn vẹn
       await prisma.$transaction(async (tx) => {
@@ -328,6 +331,9 @@ class BackupService {
           });
         }
       });
+
+      // Reset PostgreSQL sequences để đảm bảo ID tiếp theo không bị xung đột
+      await this.resetSequences();
 
       return {
         success: true,
@@ -451,6 +457,35 @@ class BackupService {
       prisma.user.deleteMany(),
       prisma.backup.deleteMany(),
     ]);
+  }
+
+  // ===== Clear data but keep backup records =====
+  async clearDataKeepBackups() {
+    await prisma.$transaction([
+      prisma.attendance.deleteMany(),
+      prisma.registration.deleteMany(),
+      prisma.activity.deleteMany(),
+      prisma.user.deleteMany(),
+    ]);
+  }
+
+  // ===== Reset PostgreSQL sequences =====
+  async resetSequences() {
+    try {
+      // Reset sequences cho tất cả các bảng có auto-increment ID
+      // Thực hiện từng lệnh riêng biệt để tránh lỗi prepared statement
+      await prisma.$executeRaw`SELECT setval('user_id_seq', COALESCE((SELECT MAX(id) FROM "user"), 1), true)`;
+      await prisma.$executeRaw`SELECT setval('activity_id_seq', COALESCE((SELECT MAX(id) FROM activity), 1), true)`;
+      await prisma.$executeRaw`SELECT setval('registration_id_seq', COALESCE((SELECT MAX(id) FROM registration), 1), true)`;
+      await prisma.$executeRaw`SELECT setval('attendance_id_seq', COALESCE((SELECT MAX(id) FROM attendance), 1), true)`;
+      await prisma.$executeRaw`SELECT setval('backup_id_seq', COALESCE((SELECT MAX(id) FROM backup), 1), true)`;
+      await prisma.$executeRaw`SELECT setval('periodic_report_id_seq', COALESCE((SELECT MAX(id) FROM periodic_report), 1), true)`;
+      
+      console.log("PostgreSQL sequences đã được reset thành công");
+    } catch (error) {
+      console.error("Lỗi khi reset sequences:", error);
+      // Không throw error để không làm gián đoạn quá trình restore
+    }
   }
 }
 

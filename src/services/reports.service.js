@@ -444,10 +444,11 @@ class ReportsService {
   // Helper method
   getStatusLabel(status) {
     switch (status) {
-      case 0: return 'Mở đăng ký';
-      case 1: return 'Đang diễn ra';
-      case 2: return 'Đã kết thúc';
-      case 3: return 'Đã hủy';
+      case 0: return 'Nháp';
+      case 1: return 'Sắp diễn ra';
+      case 2: return 'Đang diễn ra';
+      case 3: return 'Đã hoàn thành';
+      case 4: return 'Đã hủy';
       default: return 'Không xác định';
     }
   }

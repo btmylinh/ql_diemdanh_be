@@ -563,28 +563,38 @@ class ActivitiesService {
     try {
       const now = new Date();
       
-      // Update activities that should be ongoing (status 1 -> 2)
-      const upcomingToOngoing = await prisma.activity.updateMany({
-        where: {
-          status: 1, // upcoming
-          startTime: { lte: now },
-          endTime: { gt: now }
-        },
-        data: { status: 2 } // ongoing
-      });
+      // First, fix any activities with incorrect status based on current time
+      const fixIncorrectStatus = await prisma.$executeRaw`
+        UPDATE activity 
+        SET status = CASE 
+          WHEN ${now} < start_time THEN 1
+          WHEN ${now} >= start_time AND ${now} < end_time THEN 2
+          WHEN ${now} >= end_time THEN 3
+          ELSE 0
+        END
+        WHERE status != CASE 
+          WHEN ${now} < start_time THEN 1
+          WHEN ${now} >= start_time AND ${now} < end_time THEN 2
+          WHEN ${now} >= end_time THEN 3
+          ELSE 0
+        END
+      `;
       
-      // Update activities that should be completed (status 2 -> 3)
-      const ongoingToCompleted = await prisma.activity.updateMany({
+      // Update activities from draft to upcoming (status 0 -> 1) when start time is approaching
+      const draftToUpcoming = await prisma.activity.updateMany({
         where: {
-          status: 2, // ongoing only
-          endTime: { lte: now }
+          status: 0, // draft
+          startTime: { 
+            gte: now, // chưa bắt đầu
+            lte: new Date(now.getTime() + 24 * 60 * 60 * 1000) // trong vòng 1 ngày tới
+          }
         },
-        data: { status: 3 } // completed
+        data: { status: 1 } // upcoming
       });
       
       return {
-        upcoming_to_ongoing: upcomingToOngoing.count,
-        ongoing_to_completed: ongoingToCompleted.count
+        fixed_incorrect_status: fixIncorrectStatus,
+        draft_to_upcoming: draftToUpcoming.count
       };
     } catch (error) {
       console.error('Error updating activity status:', error);

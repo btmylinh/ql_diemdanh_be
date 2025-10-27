@@ -1,0 +1,85 @@
+{
+  "id": "backup_2025-10-27T01-58-11-410Z",
+  "fileName": "backup_2025-10-27T01-58-11-410Z.json",
+  "createdAt": "2025-10-27T01:58:11.533Z",
+  "metadata": {
+    "totalActivities": 1,
+    "totalUsers": 1,
+    "totalRegistrations": 1,
+    "totalAttendances": 1
+  },
+  "data": {
+    "activities": [
+      {
+        "id": 67,
+        "name": "Test Activity",
+        "description": "Test Description",
+        "location": "Test Location",
+        "startTime": "2025-10-27T01:58:11.395Z",
+        "endTime": "2025-10-27T03:58:11.395Z",
+        "maxParticipants": 50,
+        "trainingPoints": 5,
+        "registrationDeadline": null,
+        "createdBy": 40,
+        "createdAt": "2025-10-27T01:58:11.397Z",
+        "status": 1,
+        "qrCode": null,
+        "creator": {
+          "id": 40,
+          "name": "Test User",
+          "email": "test@example.com"
+        }
+      }
+    ],
+    "users": [
+      {
+        "id": 40,
+        "password": "hashedpassword",
+        "email": "test@example.com",
+        "role": "student",
+        "name": "Test User",
+        "mssv": "TEST001",
+        "class": "TEST_CLASS",
+        "phone": "0123456789",
+        "createdAt": "2025-10-27T01:58:11.386Z",
+        "status": 1
+      }
+    ],
+    "registrations": [
+      {
+        "id": 15,
+        "idactivity": 67,
+        "iduser": 40,
+        "createdAt": "2025-10-27T01:58:11.403Z",
+        "status": "1",
+        "user": {
+          "id": 40,
+          "name": "Test User",
+          "email": "test@example.com"
+        },
+        "activity": {
+          "id": 67,
+          "name": "Test Activity"
+        }
+      }
+    ],
+    "attendances": [
+      {
+        "id": 4,
+        "idactivity": 67,
+        "iduser": 40,
+        "checkinTime": "2025-10-27T01:58:11.406Z",
+        "method": "QR_CODE",
+        "user": {
+          "id": 40,
+          "name": "Test User",
+          "email": "test@example.com"
+        },
+        "activity": {
+          "id": 67,
+          "name": "Test Activity"
+        }
+      }
+    ]
+  }
+}

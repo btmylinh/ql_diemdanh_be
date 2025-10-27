@@ -83,7 +83,7 @@ class AuthService {
       const isValidPassword = await bcrypt.compare(password, user.password);
       if (!isValidPassword) return { error: { code: 401, message: 'Sai email hoặc mật khẩu' } };
 
-      if (user.status === 0) return { error: { code: 403, message: 'Tài khoản đã bị khóa' } };
+      if (user.status !== 1) return { error: { code: 403, message: 'Tài khoản không hoạt động, vui lòng liên hệ quản trị viên' } };
       const accessToken = jwt.sign({ sub: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '7d' });
       
       return { message: 'Đăng nhập thành công', accessToken, user: sanitize(user) };

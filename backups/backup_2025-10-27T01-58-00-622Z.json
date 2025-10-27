@@ -1,0 +1,2509 @@
+{
+  "id": "backup_2025-10-27T01-58-00-622Z",
+  "fileName": "backup_2025-10-27T01-58-00-622Z.json",
+  "createdAt": "2025-10-27T01:58:00.811Z",
+  "metadata": {
+    "totalActivities": 32,
+    "totalUsers": 38,
+    "totalRegistrations": 46,
+    "totalAttendances": 41
+  },
+  "data": {
+    "activities": [
+      {
+        "id": 207,
+        "name": "Seminar AR/VR",
+        "description": "Sự kiện Seminar AR/VR #8: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Xưởng IoT",
+        "startTime": "2025-11-02T12:07:50.560Z",
+        "endTime": "2025-11-02T15:07:50.560Z",
+        "maxParticipants": 40,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 35,
+        "createdAt": "2025-10-20T12:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 35,
+          "name": "Admin 35",
+          "email": "admin35@example.com"
+        }
+      },
+      {
+        "id": 210,
+        "name": "Workshop Flutter nâng cao",
+        "description": "Sự kiện Workshop Flutter nâng cao #11: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Lab DevOps 101",
+        "startTime": "2025-11-10T10:07:50.560Z",
+        "endTime": "2025-11-10T12:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 29,
+        "createdAt": "2025-10-26T10:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 29,
+          "name": "Manager 29",
+          "email": "manager29@example.com"
+        }
+      },
+      {
+        "id": 211,
+        "name": "Seminar Cloud & Kubernetes",
+        "description": "Sự kiện Seminar Cloud & Kubernetes #12: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Nhà C, P301",
+        "startTime": "2025-10-31T08:07:50.560Z",
+        "endTime": "2025-10-31T14:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 7,
+        "registrationDeadline": null,
+        "createdBy": 34,
+        "createdAt": "2025-10-17T08:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 34,
+          "name": "Admin 34",
+          "email": "admin34@example.com"
+        }
+      },
+      {
+        "id": 218,
+        "name": "Buổi chia sẻ nghề BA",
+        "description": "Sự kiện Buổi chia sẻ nghề BA #19: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Khu A, Tầng 5",
+        "startTime": "2025-11-12T16:07:50.560Z",
+        "endTime": "2025-11-12T20:07:50.560Z",
+        "maxParticipants": 150,
+        "trainingPoints": 7,
+        "registrationDeadline": null,
+        "createdBy": 33,
+        "createdAt": "2025-11-02T16:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 33,
+          "name": "Admin 33",
+          "email": "admin33@example.com"
+        }
+      },
+      {
+        "id": 222,
+        "name": "Cuộc thi Lập trình ACM nội bộ",
+        "description": "Sự kiện Cuộc thi Lập trình ACM nội bộ #23: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Xưởng IoT",
+        "startTime": "2025-11-13T17:07:50.560Z",
+        "endTime": "2025-11-13T21:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 31,
+        "createdAt": "2025-11-05T17:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 31,
+          "name": "Manager 31",
+          "email": "manager31@example.com"
+        }
+      },
+      {
+        "id": 225,
+        "name": "Buổi chia sẻ nghề BA",
+        "description": "Sự kiện Buổi chia sẻ nghề BA #26: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Xưởng IoT",
+        "startTime": "2025-10-31T08:07:50.560Z",
+        "endTime": "2025-10-31T10:07:50.560Z",
+        "maxParticipants": 200,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 31,
+        "createdAt": "2025-10-17T08:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 31,
+          "name": "Manager 31",
+          "email": "manager31@example.com"
+        }
+      },
+      {
+        "id": 226,
+        "name": "Seminar An toàn thông tin",
+        "description": "Sự kiện Seminar An toàn thông tin #27: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Phòng Lab 204",
+        "startTime": "2025-11-04T16:07:50.560Z",
+        "endTime": "2025-11-04T20:07:50.560Z",
+        "maxParticipants": 40,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 29,
+        "createdAt": "2025-10-24T16:07:50.560Z",
+        "status": 0,
+        "qrCode": null,
+        "creator": {
+          "id": 29,
+          "name": "Manager 29",
+          "email": "manager29@example.com"
+        }
+      },
+      {
+        "id": 203,
+        "name": "Seminar Cloud & Kubernetes",
+        "description": "Sự kiện Seminar Cloud & Kubernetes #4: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Lab DevOps 101",
+        "startTime": "2025-10-26T22:07:50.560Z",
+        "endTime": "2025-10-27T06:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 5,
+        "registrationDeadline": null,
+        "createdBy": 35,
+        "createdAt": "2025-10-17T22:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 35,
+          "name": "Admin 35",
+          "email": "admin35@example.com"
+        }
+      },
+      {
+        "id": 206,
+        "name": "Cuộc thi Lập trình ACM nội bộ",
+        "description": "Sự kiện Cuộc thi Lập trình ACM nội bộ #7: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Phòng Lab 204",
+        "startTime": "2025-10-26T21:07:50.560Z",
+        "endTime": "2025-10-27T06:07:50.560Z",
+        "maxParticipants": 40,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 27,
+        "createdAt": "2025-10-23T21:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 27,
+          "name": "Manager 27",
+          "email": "manager27@example.com"
+        }
+      },
+      {
+        "id": 208,
+        "name": "Seminar Mạng máy tính",
+        "description": "Sự kiện Seminar Mạng máy tính #9: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường B",
+        "startTime": "2025-10-26T23:07:50.560Z",
+        "endTime": "2025-10-27T06:07:50.560Z",
+        "maxParticipants": 120,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 27,
+        "createdAt": "2025-10-19T23:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 27,
+          "name": "Manager 27",
+          "email": "manager27@example.com"
+        }
+      },
+      {
+        "id": 209,
+        "name": "Hội thảo AI căn bản",
+        "description": "Sự kiện Hội thảo AI căn bản #10: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Nhà C, P301",
+        "startTime": "2025-10-26T18:07:50.560Z",
+        "endTime": "2025-10-27T02:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 27,
+        "createdAt": "2025-10-16T18:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 27,
+          "name": "Manager 27",
+          "email": "manager27@example.com"
+        }
+      },
+      {
+        "id": 200,
+        "name": "Talkshow Sự nghiệp Data Engineer",
+        "description": "Sự kiện Talkshow Sự nghiệp Data Engineer #1: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Khu A, Tầng 5",
+        "startTime": "2025-10-21T17:07:50.560Z",
+        "endTime": "2025-10-21T20:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 5,
+        "registrationDeadline": null,
+        "createdBy": 27,
+        "createdAt": "2025-10-18T17:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 27,
+          "name": "Manager 27",
+          "email": "manager27@example.com"
+        }
+      },
+      {
+        "id": 204,
+        "name": "Workshop Docker & DevOps",
+        "description": "Sự kiện Workshop Docker & DevOps #5: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Khu A, Tầng 5",
+        "startTime": "2025-10-11T18:07:50.560Z",
+        "endTime": "2025-10-11T22:07:50.560Z",
+        "maxParticipants": 150,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 35,
+        "createdAt": "2025-10-03T18:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 35,
+          "name": "Admin 35",
+          "email": "admin35@example.com"
+        }
+      },
+      {
+        "id": 205,
+        "name": "Seminar An toàn thông tin",
+        "description": "Sự kiện Seminar An toàn thông tin #6: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Lab DevOps 101",
+        "startTime": "2025-10-19T12:07:50.560Z",
+        "endTime": "2025-10-19T18:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 8,
+        "registrationDeadline": null,
+        "createdBy": 28,
+        "createdAt": "2025-10-05T12:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 28,
+          "name": "Manager 28",
+          "email": "manager28@example.com"
+        }
+      },
+      {
+        "id": 212,
+        "name": "Ngày hội tuyển dụng IT",
+        "description": "Sự kiện Ngày hội tuyển dụng IT #13: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Khu A, Tầng 5",
+        "startTime": "2025-10-20T17:07:50.560Z",
+        "endTime": "2025-10-20T20:07:50.560Z",
+        "maxParticipants": 150,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 33,
+        "createdAt": "2025-10-14T17:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 33,
+          "name": "Admin 33",
+          "email": "admin33@example.com"
+        }
+      },
+      {
+        "id": 216,
+        "name": "Talkshow Sự nghiệp Data Engineer",
+        "description": "Sự kiện Talkshow Sự nghiệp Data Engineer #17: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường B",
+        "startTime": "2025-10-18T20:07:50.560Z",
+        "endTime": "2025-10-18T22:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 8,
+        "registrationDeadline": null,
+        "createdBy": 29,
+        "createdAt": "2025-10-08T20:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 29,
+          "name": "Manager 29",
+          "email": "manager29@example.com"
+        }
+      },
+      {
+        "id": 217,
+        "name": "Hội thảo AI căn bản",
+        "description": "Sự kiện Hội thảo AI căn bản #18: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Sân khấu trung tâm",
+        "startTime": "2025-10-16T15:07:50.560Z",
+        "endTime": "2025-10-16T20:07:50.560Z",
+        "maxParticipants": 150,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 33,
+        "createdAt": "2025-10-05T15:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 33,
+          "name": "Admin 33",
+          "email": "admin33@example.com"
+        }
+      },
+      {
+        "id": 221,
+        "name": "Contest Web Frontend",
+        "description": "Sự kiện Contest Web Frontend #22: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường C",
+        "startTime": "2025-10-16T19:07:50.560Z",
+        "endTime": "2025-10-16T23:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 29,
+        "createdAt": "2025-10-08T19:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 29,
+          "name": "Manager 29",
+          "email": "manager29@example.com"
+        }
+      },
+      {
+        "id": 201,
+        "name": "Seminar Mạng máy tính",
+        "description": "Sự kiện Seminar Mạng máy tính #2: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường B",
+        "startTime": "2025-10-26T23:07:50.560Z",
+        "endTime": "2025-10-27T01:07:50.560Z",
+        "maxParticipants": 80,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 28,
+        "createdAt": "2025-10-13T23:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 28,
+          "name": "Manager 28",
+          "email": "manager28@example.com"
+        }
+      },
+      {
+        "id": 202,
+        "name": "Workshop Git nâng cao",
+        "description": "Sự kiện Workshop Git nâng cao #3: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Nhà C, P301",
+        "startTime": "2025-10-26T22:07:50.560Z",
+        "endTime": "2025-10-27T01:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 34,
+        "createdAt": "2025-10-13T22:07:50.560Z",
+        "status": 3,
+        "qrCode": null,
+        "creator": {
+          "id": 34,
+          "name": "Admin 34",
+          "email": "admin34@example.com"
+        }
+      },
+      {
+        "id": 65,
+        "name": "HD 1",
+        "description": "mô tả HD 1",
+        "location": "a392",
+        "startTime": "2025-10-27T01:55:00.000Z",
+        "endTime": "2025-10-30T03:55:00.000Z",
+        "maxParticipants": 20,
+        "trainingPoints": 5,
+        "registrationDeadline": "2025-10-27T01:52:00.000Z",
+        "createdBy": 36,
+        "createdAt": "2025-10-27T01:47:57.956Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 36,
+          "name": "Lâm Chung",
+          "email": "lamchung@gmail.com"
+        }
+      },
+      {
+        "id": 213,
+        "name": "Seminar Mạng máy tính",
+        "description": "Sự kiện Seminar Mạng máy tính #14: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Phòng Lab 204",
+        "startTime": "2025-10-26T20:07:50.560Z",
+        "endTime": "2025-10-27T06:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 15,
+        "registrationDeadline": null,
+        "createdBy": 32,
+        "createdAt": "2025-10-22T20:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 32,
+          "name": "Manager 32",
+          "email": "manager32@example.com"
+        }
+      },
+      {
+        "id": 214,
+        "name": "Workshop Docker & DevOps",
+        "description": "Sự kiện Workshop Docker & DevOps #15: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Xưởng IoT",
+        "startTime": "2025-10-26T22:07:50.560Z",
+        "endTime": "2025-10-27T05:07:50.560Z",
+        "maxParticipants": 80,
+        "trainingPoints": 8,
+        "registrationDeadline": null,
+        "createdBy": 32,
+        "createdAt": "2025-10-15T22:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 32,
+          "name": "Manager 32",
+          "email": "manager32@example.com"
+        }
+      },
+      {
+        "id": 215,
+        "name": "Workshop Git nâng cao",
+        "description": "Sự kiện Workshop Git nâng cao #16: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường C",
+        "startTime": "2025-10-26T22:07:50.560Z",
+        "endTime": "2025-10-27T03:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 34,
+        "createdAt": "2025-10-13T22:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 34,
+          "name": "Admin 34",
+          "email": "admin34@example.com"
+        }
+      },
+      {
+        "id": 219,
+        "name": "Seminar An toàn thông tin",
+        "description": "Sự kiện Seminar An toàn thông tin #20: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Lab DevOps 101",
+        "startTime": "2025-10-26T19:07:50.560Z",
+        "endTime": "2025-10-27T03:07:50.560Z",
+        "maxParticipants": 100,
+        "trainingPoints": 10,
+        "registrationDeadline": null,
+        "createdBy": 35,
+        "createdAt": "2025-10-23T19:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 35,
+          "name": "Admin 35",
+          "email": "admin35@example.com"
+        }
+      },
+      {
+        "id": 220,
+        "name": "Seminar AR/VR",
+        "description": "Sự kiện Seminar AR/VR #21: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường B",
+        "startTime": "2025-10-26T18:07:50.560Z",
+        "endTime": "2025-10-27T05:07:50.560Z",
+        "maxParticipants": 150,
+        "trainingPoints": 8,
+        "registrationDeadline": null,
+        "createdBy": 32,
+        "createdAt": "2025-10-23T18:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 32,
+          "name": "Manager 32",
+          "email": "manager32@example.com"
+        }
+      },
+      {
+        "id": 223,
+        "name": "Workshop Git nâng cao",
+        "description": "Sự kiện Workshop Git nâng cao #24: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường A1",
+        "startTime": "2025-10-26T22:07:50.560Z",
+        "endTime": "2025-10-27T03:07:50.560Z",
+        "maxParticipants": 200,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 28,
+        "createdAt": "2025-10-17T22:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 28,
+          "name": "Manager 28",
+          "email": "manager28@example.com"
+        }
+      },
+      {
+        "id": 224,
+        "name": "Seminar Cloud & Kubernetes",
+        "description": "Sự kiện Seminar Cloud & Kubernetes #25: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường A1",
+        "startTime": "2025-10-26T22:07:50.560Z",
+        "endTime": "2025-10-27T02:07:50.560Z",
+        "maxParticipants": 200,
+        "trainingPoints": 5,
+        "registrationDeadline": null,
+        "createdBy": 33,
+        "createdAt": "2025-10-12T22:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 33,
+          "name": "Admin 33",
+          "email": "admin33@example.com"
+        }
+      },
+      {
+        "id": 227,
+        "name": "Cuộc thi Lập trình ACM nội bộ",
+        "description": "Sự kiện Cuộc thi Lập trình ACM nội bộ #28: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Hội trường A1",
+        "startTime": "2025-10-26T21:07:50.560Z",
+        "endTime": "2025-10-27T03:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 30,
+        "createdAt": "2025-10-19T21:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 30,
+          "name": "Manager 30",
+          "email": "manager30@example.com"
+        }
+      },
+      {
+        "id": 228,
+        "name": "Workshop Docker & DevOps",
+        "description": "Sự kiện Workshop Docker & DevOps #29: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Phòng Lab 204",
+        "startTime": "2025-10-26T18:07:50.560Z",
+        "endTime": "2025-10-27T06:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 12,
+        "registrationDeadline": null,
+        "createdBy": 34,
+        "createdAt": "2025-10-16T18:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 34,
+          "name": "Admin 34",
+          "email": "admin34@example.com"
+        }
+      },
+      {
+        "id": 229,
+        "name": "Mini hackathon IoT",
+        "description": "Sự kiện Mini hackathon IoT #30: nội dung thực hành & chia sẻ kinh nghiệm.",
+        "location": "Khu A, Tầng 5",
+        "startTime": "2025-10-26T18:07:50.560Z",
+        "endTime": "2025-10-27T04:07:50.560Z",
+        "maxParticipants": 50,
+        "trainingPoints": 8,
+        "registrationDeadline": null,
+        "createdBy": 29,
+        "createdAt": "2025-10-14T18:07:50.560Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 29,
+          "name": "Manager 29",
+          "email": "manager29@example.com"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Test Activity",
+        "description": "Test Description",
+        "location": "Test Location",
+        "startTime": "2025-10-27T01:58:00.600Z",
+        "endTime": "2025-10-27T03:58:00.600Z",
+        "maxParticipants": 50,
+        "trainingPoints": 5,
+        "registrationDeadline": null,
+        "createdBy": 38,
+        "createdAt": "2025-10-27T01:58:00.604Z",
+        "status": 2,
+        "qrCode": null,
+        "creator": {
+          "id": 38,
+          "name": "Test User",
+          "email": "test@example.com"
+        }
+      }
+    ],
+    "users": [
+      {
+        "id": 36,
+        "password": "$2b$10$J5.gVPkzxH3k15nR375ZsuIHrWup5kugvn.mJv4GKojEsy.WjiQre",
+        "email": "lamchung@gmail.com",
+        "role": "manager",
+        "name": "Lâm Chung",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-27T01:45:48.552Z",
+        "status": 1
+      },
+      {
+        "id": 37,
+        "password": "$2b$10$377hAFUUKUaH/fJ5jzHBMOStSsmlAOlgM8O214wQ3hERECZr1M2R.",
+        "email": "linh@gmail.con",
+        "role": "student",
+        "name": "Mỹ Linh",
+        "mssv": "1150080145",
+        "class": "cnpm2",
+        "phone": "039383883",
+        "createdAt": "2025-10-27T01:51:32.469Z",
+        "status": 2
+      },
+      {
+        "id": 38,
+        "password": "hashedpassword",
+        "email": "test@example.com",
+        "role": "student",
+        "name": "Test User",
+        "mssv": "TEST001",
+        "class": "TEST_CLASS",
+        "phone": "0123456789",
+        "createdAt": "2025-10-27T01:58:00.594Z",
+        "status": 1
+      },
+      {
+        "id": 1,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student01@example.com",
+        "role": "student",
+        "name": "Student 1",
+        "mssv": "SV0001",
+        "class": "CNPM2",
+        "phone": null,
+        "createdAt": "2025-10-05T13:55:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 2,
+        "password": "$2b$10$vKdaCliq9ag25O3M4zcrZerhJDzbSM23GiDoiVSb5IalwvaWnxaWK",
+        "email": "admin@example.com",
+        "role": "admin",
+        "name": "Admin User",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-12T08:52:57.648Z",
+        "status": 1
+      },
+      {
+        "id": 3,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student03@example.com",
+        "role": "student",
+        "name": "Student 3",
+        "mssv": "SV0003",
+        "class": "CNPM4",
+        "phone": null,
+        "createdAt": "2025-09-16T04:52:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 4,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student04@example.com",
+        "role": "student",
+        "name": "Student 4",
+        "mssv": "SV0004",
+        "class": "CNPM5",
+        "phone": null,
+        "createdAt": "2025-09-16T03:25:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 5,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student05@example.com",
+        "role": "student",
+        "name": "Student 5",
+        "mssv": "SV0005",
+        "class": "CNPM1",
+        "phone": null,
+        "createdAt": "2025-10-21T16:06:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 6,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student06@example.com",
+        "role": "student",
+        "name": "Student 6",
+        "mssv": "SV0006",
+        "class": "CNPM2",
+        "phone": null,
+        "createdAt": "2025-10-10T17:35:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 7,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student07@example.com",
+        "role": "student",
+        "name": "Student 7",
+        "mssv": "SV0007",
+        "class": "CNPM3",
+        "phone": null,
+        "createdAt": "2025-10-10T13:47:50.560Z",
+        "status": 0
+      },
+      {
+        "id": 8,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student08@example.com",
+        "role": "student",
+        "name": "Student 8",
+        "mssv": "SV0008",
+        "class": "CNPM4",
+        "phone": null,
+        "createdAt": "2025-10-16T06:18:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 9,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student09@example.com",
+        "role": "student",
+        "name": "Student 9",
+        "mssv": "SV0009",
+        "class": "CNPM5",
+        "phone": null,
+        "createdAt": "2025-09-17T08:54:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 10,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student10@example.com",
+        "role": "student",
+        "name": "Student 10",
+        "mssv": "SV0010",
+        "class": "CNPM1",
+        "phone": null,
+        "createdAt": "2025-10-09T22:02:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 11,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student11@example.com",
+        "role": "student",
+        "name": "Student 11",
+        "mssv": "SV0011",
+        "class": "CNPM2",
+        "phone": null,
+        "createdAt": "2025-09-16T09:29:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 12,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student12@example.com",
+        "role": "student",
+        "name": "Student 12",
+        "mssv": "SV0012",
+        "class": "CNPM3",
+        "phone": null,
+        "createdAt": "2025-10-17T20:14:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 13,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student13@example.com",
+        "role": "student",
+        "name": "Student 13",
+        "mssv": "SV0013",
+        "class": "CNPM4",
+        "phone": null,
+        "createdAt": "2025-09-30T22:01:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 14,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student14@example.com",
+        "role": "student",
+        "name": "Student 14",
+        "mssv": "SV0014",
+        "class": "CNPM5",
+        "phone": null,
+        "createdAt": "2025-09-22T21:09:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 15,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student15@example.com",
+        "role": "student",
+        "name": "Student 15",
+        "mssv": "SV0015",
+        "class": "CNPM1",
+        "phone": null,
+        "createdAt": "2025-10-15T15:39:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 16,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student16@example.com",
+        "role": "student",
+        "name": "Student 16",
+        "mssv": "SV0016",
+        "class": "CNPM2",
+        "phone": null,
+        "createdAt": "2025-10-14T12:08:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 17,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student17@example.com",
+        "role": "student",
+        "name": "Student 17",
+        "mssv": "SV0017",
+        "class": "CNPM3",
+        "phone": null,
+        "createdAt": "2025-10-18T11:19:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 18,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student18@example.com",
+        "role": "student",
+        "name": "Student 18",
+        "mssv": "SV0018",
+        "class": "CNPM4",
+        "phone": null,
+        "createdAt": "2025-09-18T16:53:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 19,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student19@example.com",
+        "role": "student",
+        "name": "Student 19",
+        "mssv": "SV0019",
+        "class": "CNPM5",
+        "phone": null,
+        "createdAt": "2025-09-21T11:20:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 20,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student20@example.com",
+        "role": "student",
+        "name": "Student 20",
+        "mssv": "SV0020",
+        "class": "CNPM1",
+        "phone": null,
+        "createdAt": "2025-09-28T00:05:50.560Z",
+        "status": 0
+      },
+      {
+        "id": 21,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student21@example.com",
+        "role": "student",
+        "name": "Student 21",
+        "mssv": "SV0021",
+        "class": "CNPM2",
+        "phone": null,
+        "createdAt": "2025-09-20T04:05:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 22,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student22@example.com",
+        "role": "student",
+        "name": "Student 22",
+        "mssv": "SV0022",
+        "class": "CNPM3",
+        "phone": null,
+        "createdAt": "2025-09-24T20:51:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 23,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student23@example.com",
+        "role": "student",
+        "name": "Student 23",
+        "mssv": "SV0023",
+        "class": "CNPM4",
+        "phone": null,
+        "createdAt": "2025-09-20T22:26:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 24,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student24@example.com",
+        "role": "student",
+        "name": "Student 24",
+        "mssv": "SV0024",
+        "class": "CNPM5",
+        "phone": null,
+        "createdAt": "2025-10-15T19:48:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 25,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student25@example.com",
+        "role": "student",
+        "name": "Student 25",
+        "mssv": "SV0025",
+        "class": "CNPM1",
+        "phone": null,
+        "createdAt": "2025-10-16T23:14:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 26,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "student26@example.com",
+        "role": "student",
+        "name": "Student 26",
+        "mssv": "SV0026",
+        "class": "CNPM2",
+        "phone": null,
+        "createdAt": "2025-09-29T10:31:50.560Z",
+        "status": 0
+      },
+      {
+        "id": 27,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "manager27@example.com",
+        "role": "manager",
+        "name": "Manager 27",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-18T08:58:50.560Z",
+        "status": 0
+      },
+      {
+        "id": 28,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "manager28@example.com",
+        "role": "manager",
+        "name": "Manager 28",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-21T17:02:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 29,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "manager29@example.com",
+        "role": "manager",
+        "name": "Manager 29",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-14T11:37:50.560Z",
+        "status": 0
+      },
+      {
+        "id": 30,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "manager30@example.com",
+        "role": "manager",
+        "name": "Manager 30",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-13T16:51:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 31,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "manager31@example.com",
+        "role": "manager",
+        "name": "Manager 31",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-16T18:57:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 32,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "manager32@example.com",
+        "role": "manager",
+        "name": "Manager 32",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-20T22:12:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 33,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "admin33@example.com",
+        "role": "admin",
+        "name": "Admin 33",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-09-19T11:31:50.560Z",
+        "status": 2
+      },
+      {
+        "id": 34,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "admin34@example.com",
+        "role": "admin",
+        "name": "Admin 34",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-09-25T08:35:50.560Z",
+        "status": 1
+      },
+      {
+        "id": 35,
+        "password": "$2b$10$dummyhashedpasswordstringxxxxxxxxxxxxxxxxxxxxxxx",
+        "email": "admin35@example.com",
+        "role": "admin",
+        "name": "Admin 35",
+        "mssv": null,
+        "class": null,
+        "phone": null,
+        "createdAt": "2025-10-15T08:28:50.560Z",
+        "status": 1
+      }
+    ],
+    "registrations": [
+      {
+        "id": 1000,
+        "idactivity": 203,
+        "iduser": 21,
+        "createdAt": "2025-10-10T21:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 21,
+          "name": "Student 21",
+          "email": "student21@example.com"
+        },
+        "activity": {
+          "id": 203,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 1001,
+        "idactivity": 225,
+        "iduser": 26,
+        "createdAt": "2025-10-14T06:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 26,
+          "name": "Student 26",
+          "email": "student26@example.com"
+        },
+        "activity": {
+          "id": 225,
+          "name": "Buổi chia sẻ nghề BA"
+        }
+      },
+      {
+        "id": 1002,
+        "idactivity": 210,
+        "iduser": 16,
+        "createdAt": "2025-10-29T05:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 16,
+          "name": "Student 16",
+          "email": "student16@example.com"
+        },
+        "activity": {
+          "id": 210,
+          "name": "Workshop Flutter nâng cao"
+        }
+      },
+      {
+        "id": 1003,
+        "idactivity": 207,
+        "iduser": 26,
+        "createdAt": "2025-11-01T12:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 26,
+          "name": "Student 26",
+          "email": "student26@example.com"
+        },
+        "activity": {
+          "id": 207,
+          "name": "Seminar AR/VR"
+        }
+      },
+      {
+        "id": 1004,
+        "idactivity": 217,
+        "iduser": 8,
+        "createdAt": "2025-09-26T09:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 8,
+          "name": "Student 8",
+          "email": "student08@example.com"
+        },
+        "activity": {
+          "id": 217,
+          "name": "Hội thảo AI căn bản"
+        }
+      },
+      {
+        "id": 1005,
+        "idactivity": 213,
+        "iduser": 3,
+        "createdAt": "2025-10-19T15:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 3,
+          "name": "Student 3",
+          "email": "student03@example.com"
+        },
+        "activity": {
+          "id": 213,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 1006,
+        "idactivity": 207,
+        "iduser": 20,
+        "createdAt": "2025-10-17T07:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 20,
+          "name": "Student 20",
+          "email": "student20@example.com"
+        },
+        "activity": {
+          "id": 207,
+          "name": "Seminar AR/VR"
+        }
+      },
+      {
+        "id": 1007,
+        "idactivity": 209,
+        "iduser": 11,
+        "createdAt": "2025-10-18T12:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 11,
+          "name": "Student 11",
+          "email": "student11@example.com"
+        },
+        "activity": {
+          "id": 209,
+          "name": "Hội thảo AI căn bản"
+        }
+      },
+      {
+        "id": 1008,
+        "idactivity": 220,
+        "iduser": 11,
+        "createdAt": "2025-10-10T14:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 11,
+          "name": "Student 11",
+          "email": "student11@example.com"
+        },
+        "activity": {
+          "id": 220,
+          "name": "Seminar AR/VR"
+        }
+      },
+      {
+        "id": 1009,
+        "idactivity": 205,
+        "iduser": 13,
+        "createdAt": "2025-10-03T09:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 13,
+          "name": "Student 13",
+          "email": "student13@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1010,
+        "idactivity": 205,
+        "iduser": 1,
+        "createdAt": "2025-10-17T12:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 1,
+          "name": "Student 1",
+          "email": "student01@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1011,
+        "idactivity": 200,
+        "iduser": 12,
+        "createdAt": "2025-10-05T15:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 12,
+          "name": "Student 12",
+          "email": "student12@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 1012,
+        "idactivity": 216,
+        "iduser": 3,
+        "createdAt": "2025-10-09T17:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 3,
+          "name": "Student 3",
+          "email": "student03@example.com"
+        },
+        "activity": {
+          "id": 216,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 1013,
+        "idactivity": 219,
+        "iduser": 15,
+        "createdAt": "2025-10-24T18:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 15,
+          "name": "Student 15",
+          "email": "student15@example.com"
+        },
+        "activity": {
+          "id": 219,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1014,
+        "idactivity": 214,
+        "iduser": 6,
+        "createdAt": "2025-10-22T16:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 6,
+          "name": "Student 6",
+          "email": "student06@example.com"
+        },
+        "activity": {
+          "id": 214,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1015,
+        "idactivity": 229,
+        "iduser": 18,
+        "createdAt": "2025-10-17T12:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 18,
+          "name": "Student 18",
+          "email": "student18@example.com"
+        },
+        "activity": {
+          "id": 229,
+          "name": "Mini hackathon IoT"
+        }
+      },
+      {
+        "id": 1016,
+        "idactivity": 229,
+        "iduser": 4,
+        "createdAt": "2025-10-14T12:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 4,
+          "name": "Student 4",
+          "email": "student04@example.com"
+        },
+        "activity": {
+          "id": 229,
+          "name": "Mini hackathon IoT"
+        }
+      },
+      {
+        "id": 1017,
+        "idactivity": 200,
+        "iduser": 6,
+        "createdAt": "2025-10-11T15:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 6,
+          "name": "Student 6",
+          "email": "student06@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 1018,
+        "idactivity": 207,
+        "iduser": 14,
+        "createdAt": "2025-10-24T07:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 14,
+          "name": "Student 14",
+          "email": "student14@example.com"
+        },
+        "activity": {
+          "id": 207,
+          "name": "Seminar AR/VR"
+        }
+      },
+      {
+        "id": 1019,
+        "idactivity": 205,
+        "iduser": 21,
+        "createdAt": "2025-10-18T08:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 21,
+          "name": "Student 21",
+          "email": "student21@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1020,
+        "idactivity": 227,
+        "iduser": 22,
+        "createdAt": "2025-10-20T16:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 22,
+          "name": "Student 22",
+          "email": "student22@example.com"
+        },
+        "activity": {
+          "id": 227,
+          "name": "Cuộc thi Lập trình ACM nội bộ"
+        }
+      },
+      {
+        "id": 1021,
+        "idactivity": 225,
+        "iduser": 23,
+        "createdAt": "2025-10-30T02:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 23,
+          "name": "Student 23",
+          "email": "student23@example.com"
+        },
+        "activity": {
+          "id": 225,
+          "name": "Buổi chia sẻ nghề BA"
+        }
+      },
+      {
+        "id": 1022,
+        "idactivity": 220,
+        "iduser": 13,
+        "createdAt": "2025-10-19T12:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 13,
+          "name": "Student 13",
+          "email": "student13@example.com"
+        },
+        "activity": {
+          "id": 220,
+          "name": "Seminar AR/VR"
+        }
+      },
+      {
+        "id": 1023,
+        "idactivity": 204,
+        "iduser": 4,
+        "createdAt": "2025-10-01T12:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 4,
+          "name": "Student 4",
+          "email": "student04@example.com"
+        },
+        "activity": {
+          "id": 204,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1024,
+        "idactivity": 226,
+        "iduser": 11,
+        "createdAt": "2025-10-25T15:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 11,
+          "name": "Student 11",
+          "email": "student11@example.com"
+        },
+        "activity": {
+          "id": 226,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1025,
+        "idactivity": 228,
+        "iduser": 8,
+        "createdAt": "2025-10-08T16:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 8,
+          "name": "Student 8",
+          "email": "student08@example.com"
+        },
+        "activity": {
+          "id": 228,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1026,
+        "idactivity": 203,
+        "iduser": 5,
+        "createdAt": "2025-10-25T22:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 5,
+          "name": "Student 5",
+          "email": "student05@example.com"
+        },
+        "activity": {
+          "id": 203,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 1027,
+        "idactivity": 204,
+        "iduser": 10,
+        "createdAt": "2025-09-27T18:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 10,
+          "name": "Student 10",
+          "email": "student10@example.com"
+        },
+        "activity": {
+          "id": 204,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1028,
+        "idactivity": 208,
+        "iduser": 20,
+        "createdAt": "2025-10-21T22:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 20,
+          "name": "Student 20",
+          "email": "student20@example.com"
+        },
+        "activity": {
+          "id": 208,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 1029,
+        "idactivity": 224,
+        "iduser": 16,
+        "createdAt": "2025-10-23T17:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 16,
+          "name": "Student 16",
+          "email": "student16@example.com"
+        },
+        "activity": {
+          "id": 224,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 1030,
+        "idactivity": 219,
+        "iduser": 24,
+        "createdAt": "2025-10-09T18:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 24,
+          "name": "Student 24",
+          "email": "student24@example.com"
+        },
+        "activity": {
+          "id": 219,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1031,
+        "idactivity": 212,
+        "iduser": 13,
+        "createdAt": "2025-10-07T17:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 13,
+          "name": "Student 13",
+          "email": "student13@example.com"
+        },
+        "activity": {
+          "id": 212,
+          "name": "Ngày hội tuyển dụng IT"
+        }
+      },
+      {
+        "id": 1032,
+        "idactivity": 206,
+        "iduser": 2,
+        "createdAt": "2025-10-06T20:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 2,
+          "name": "Admin User",
+          "email": "admin@example.com"
+        },
+        "activity": {
+          "id": 206,
+          "name": "Cuộc thi Lập trình ACM nội bộ"
+        }
+      },
+      {
+        "id": 1033,
+        "idactivity": 228,
+        "iduser": 14,
+        "createdAt": "2025-10-22T18:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 14,
+          "name": "Student 14",
+          "email": "student14@example.com"
+        },
+        "activity": {
+          "id": 228,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1034,
+        "idactivity": 216,
+        "iduser": 19,
+        "createdAt": "2025-10-06T16:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 19,
+          "name": "Student 19",
+          "email": "student19@example.com"
+        },
+        "activity": {
+          "id": 216,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 1035,
+        "idactivity": 205,
+        "iduser": 10,
+        "createdAt": "2025-10-04T07:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 10,
+          "name": "Student 10",
+          "email": "student10@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1036,
+        "idactivity": 228,
+        "iduser": 3,
+        "createdAt": "2025-10-08T18:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 3,
+          "name": "Student 3",
+          "email": "student03@example.com"
+        },
+        "activity": {
+          "id": 228,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1037,
+        "idactivity": 200,
+        "iduser": 14,
+        "createdAt": "2025-10-12T14:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 14,
+          "name": "Student 14",
+          "email": "student14@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 1038,
+        "idactivity": 204,
+        "iduser": 17,
+        "createdAt": "2025-10-03T13:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 17,
+          "name": "Student 17",
+          "email": "student17@example.com"
+        },
+        "activity": {
+          "id": 204,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 1039,
+        "idactivity": 226,
+        "iduser": 1,
+        "createdAt": "2025-10-21T10:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 1,
+          "name": "Student 1",
+          "email": "student01@example.com"
+        },
+        "activity": {
+          "id": 226,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1040,
+        "idactivity": 213,
+        "iduser": 13,
+        "createdAt": "2025-10-17T18:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 13,
+          "name": "Student 13",
+          "email": "student13@example.com"
+        },
+        "activity": {
+          "id": 213,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 1041,
+        "idactivity": 226,
+        "iduser": 4,
+        "createdAt": "2025-10-27T14:07:50.560Z",
+        "status": "1",
+        "user": {
+          "id": 4,
+          "name": "Student 4",
+          "email": "student04@example.com"
+        },
+        "activity": {
+          "id": 226,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 1042,
+        "idactivity": 216,
+        "iduser": 20,
+        "createdAt": "2025-10-14T18:07:50.560Z",
+        "status": "2",
+        "user": {
+          "id": 20,
+          "name": "Student 20",
+          "email": "student20@example.com"
+        },
+        "activity": {
+          "id": 216,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 1043,
+        "idactivity": 203,
+        "iduser": 15,
+        "createdAt": "2025-10-12T21:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 15,
+          "name": "Student 15",
+          "email": "student15@example.com"
+        },
+        "activity": {
+          "id": 203,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 1044,
+        "idactivity": 210,
+        "iduser": 3,
+        "createdAt": "2025-11-09T08:07:50.560Z",
+        "status": "3",
+        "user": {
+          "id": 3,
+          "name": "Student 3",
+          "email": "student03@example.com"
+        },
+        "activity": {
+          "id": 210,
+          "name": "Workshop Flutter nâng cao"
+        }
+      },
+      {
+        "id": 14,
+        "idactivity": 66,
+        "iduser": 38,
+        "createdAt": "2025-10-27T01:58:00.610Z",
+        "status": "1",
+        "user": {
+          "id": 38,
+          "name": "Test User",
+          "email": "test@example.com"
+        },
+        "activity": {
+          "id": 66,
+          "name": "Test Activity"
+        }
+      }
+    ],
+    "attendances": [
+      {
+        "id": 2000,
+        "idactivity": 213,
+        "iduser": 22,
+        "checkinTime": "2025-10-26T20:25:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 22,
+          "name": "Student 22",
+          "email": "student22@example.com"
+        },
+        "activity": {
+          "id": 213,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2001,
+        "idactivity": 200,
+        "iduser": 10,
+        "checkinTime": "2025-10-21T17:51:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 10,
+          "name": "Student 10",
+          "email": "student10@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 2002,
+        "idactivity": 209,
+        "iduser": 12,
+        "checkinTime": "2025-10-26T18:12:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 12,
+          "name": "Student 12",
+          "email": "student12@example.com"
+        },
+        "activity": {
+          "id": 209,
+          "name": "Hội thảo AI căn bản"
+        }
+      },
+      {
+        "id": 2003,
+        "idactivity": 227,
+        "iduser": 1,
+        "checkinTime": "2025-10-26T21:38:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 1,
+          "name": "Student 1",
+          "email": "student01@example.com"
+        },
+        "activity": {
+          "id": 227,
+          "name": "Cuộc thi Lập trình ACM nội bộ"
+        }
+      },
+      {
+        "id": 2004,
+        "idactivity": 219,
+        "iduser": 4,
+        "checkinTime": "2025-10-26T19:51:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 4,
+          "name": "Student 4",
+          "email": "student04@example.com"
+        },
+        "activity": {
+          "id": 219,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 2005,
+        "idactivity": 215,
+        "iduser": 25,
+        "checkinTime": "2025-10-26T23:05:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 25,
+          "name": "Student 25",
+          "email": "student25@example.com"
+        },
+        "activity": {
+          "id": 215,
+          "name": "Workshop Git nâng cao"
+        }
+      },
+      {
+        "id": 2006,
+        "idactivity": 201,
+        "iduser": 24,
+        "checkinTime": "2025-10-26T23:43:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 24,
+          "name": "Student 24",
+          "email": "student24@example.com"
+        },
+        "activity": {
+          "id": 201,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2007,
+        "idactivity": 212,
+        "iduser": 8,
+        "checkinTime": "2025-10-20T17:49:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 8,
+          "name": "Student 8",
+          "email": "student08@example.com"
+        },
+        "activity": {
+          "id": 212,
+          "name": "Ngày hội tuyển dụng IT"
+        }
+      },
+      {
+        "id": 2008,
+        "idactivity": 221,
+        "iduser": 23,
+        "checkinTime": "2025-10-16T19:17:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 23,
+          "name": "Student 23",
+          "email": "student23@example.com"
+        },
+        "activity": {
+          "id": 221,
+          "name": "Contest Web Frontend"
+        }
+      },
+      {
+        "id": 2009,
+        "idactivity": 208,
+        "iduser": 1,
+        "checkinTime": "2025-10-26T23:32:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 1,
+          "name": "Student 1",
+          "email": "student01@example.com"
+        },
+        "activity": {
+          "id": 208,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2010,
+        "idactivity": 201,
+        "iduser": 14,
+        "checkinTime": "2025-10-26T23:49:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 14,
+          "name": "Student 14",
+          "email": "student14@example.com"
+        },
+        "activity": {
+          "id": 201,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2011,
+        "idactivity": 214,
+        "iduser": 20,
+        "checkinTime": "2025-10-26T22:55:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 20,
+          "name": "Student 20",
+          "email": "student20@example.com"
+        },
+        "activity": {
+          "id": 214,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 2012,
+        "idactivity": 202,
+        "iduser": 2,
+        "checkinTime": "2025-10-26T22:08:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 2,
+          "name": "Admin User",
+          "email": "admin@example.com"
+        },
+        "activity": {
+          "id": 202,
+          "name": "Workshop Git nâng cao"
+        }
+      },
+      {
+        "id": 2013,
+        "idactivity": 208,
+        "iduser": 13,
+        "checkinTime": "2025-10-26T23:39:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 13,
+          "name": "Student 13",
+          "email": "student13@example.com"
+        },
+        "activity": {
+          "id": 208,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2014,
+        "idactivity": 200,
+        "iduser": 8,
+        "checkinTime": "2025-10-21T17:32:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 8,
+          "name": "Student 8",
+          "email": "student08@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 2015,
+        "idactivity": 217,
+        "iduser": 22,
+        "checkinTime": "2025-10-16T16:00:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 22,
+          "name": "Student 22",
+          "email": "student22@example.com"
+        },
+        "activity": {
+          "id": 217,
+          "name": "Hội thảo AI căn bản"
+        }
+      },
+      {
+        "id": 2016,
+        "idactivity": 213,
+        "iduser": 24,
+        "checkinTime": "2025-10-26T20:32:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 24,
+          "name": "Student 24",
+          "email": "student24@example.com"
+        },
+        "activity": {
+          "id": 213,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2017,
+        "idactivity": 223,
+        "iduser": 1,
+        "checkinTime": "2025-10-26T22:33:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 1,
+          "name": "Student 1",
+          "email": "student01@example.com"
+        },
+        "activity": {
+          "id": 223,
+          "name": "Workshop Git nâng cao"
+        }
+      },
+      {
+        "id": 2018,
+        "idactivity": 228,
+        "iduser": 19,
+        "checkinTime": "2025-10-26T18:34:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 19,
+          "name": "Student 19",
+          "email": "student19@example.com"
+        },
+        "activity": {
+          "id": 228,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 2019,
+        "idactivity": 206,
+        "iduser": 1,
+        "checkinTime": "2025-10-26T21:45:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 1,
+          "name": "Student 1",
+          "email": "student01@example.com"
+        },
+        "activity": {
+          "id": 206,
+          "name": "Cuộc thi Lập trình ACM nội bộ"
+        }
+      },
+      {
+        "id": 2020,
+        "idactivity": 203,
+        "iduser": 3,
+        "checkinTime": "2025-10-26T22:56:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 3,
+          "name": "Student 3",
+          "email": "student03@example.com"
+        },
+        "activity": {
+          "id": 203,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 2021,
+        "idactivity": 212,
+        "iduser": 7,
+        "checkinTime": "2025-10-20T17:28:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 7,
+          "name": "Student 7",
+          "email": "student07@example.com"
+        },
+        "activity": {
+          "id": 212,
+          "name": "Ngày hội tuyển dụng IT"
+        }
+      },
+      {
+        "id": 2022,
+        "idactivity": 209,
+        "iduser": 8,
+        "checkinTime": "2025-10-26T18:36:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 8,
+          "name": "Student 8",
+          "email": "student08@example.com"
+        },
+        "activity": {
+          "id": 209,
+          "name": "Hội thảo AI căn bản"
+        }
+      },
+      {
+        "id": 2023,
+        "idactivity": 205,
+        "iduser": 11,
+        "checkinTime": "2025-10-19T12:15:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 11,
+          "name": "Student 11",
+          "email": "student11@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 2024,
+        "idactivity": 214,
+        "iduser": 12,
+        "checkinTime": "2025-10-26T22:45:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 12,
+          "name": "Student 12",
+          "email": "student12@example.com"
+        },
+        "activity": {
+          "id": 214,
+          "name": "Workshop Docker & DevOps"
+        }
+      },
+      {
+        "id": 2025,
+        "idactivity": 205,
+        "iduser": 14,
+        "checkinTime": "2025-10-19T12:15:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 14,
+          "name": "Student 14",
+          "email": "student14@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 2026,
+        "idactivity": 215,
+        "iduser": 26,
+        "checkinTime": "2025-10-26T22:32:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 26,
+          "name": "Student 26",
+          "email": "student26@example.com"
+        },
+        "activity": {
+          "id": 215,
+          "name": "Workshop Git nâng cao"
+        }
+      },
+      {
+        "id": 2027,
+        "idactivity": 201,
+        "iduser": 26,
+        "checkinTime": "2025-10-26T23:44:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 26,
+          "name": "Student 26",
+          "email": "student26@example.com"
+        },
+        "activity": {
+          "id": 201,
+          "name": "Seminar Mạng máy tính"
+        }
+      },
+      {
+        "id": 2028,
+        "idactivity": 203,
+        "iduser": 25,
+        "checkinTime": "2025-10-26T22:58:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 25,
+          "name": "Student 25",
+          "email": "student25@example.com"
+        },
+        "activity": {
+          "id": 203,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 2029,
+        "idactivity": 223,
+        "iduser": 24,
+        "checkinTime": "2025-10-26T22:34:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 24,
+          "name": "Student 24",
+          "email": "student24@example.com"
+        },
+        "activity": {
+          "id": 223,
+          "name": "Workshop Git nâng cao"
+        }
+      },
+      {
+        "id": 2030,
+        "idactivity": 229,
+        "iduser": 7,
+        "checkinTime": "2025-10-26T18:44:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 7,
+          "name": "Student 7",
+          "email": "student07@example.com"
+        },
+        "activity": {
+          "id": 229,
+          "name": "Mini hackathon IoT"
+        }
+      },
+      {
+        "id": 2031,
+        "idactivity": 205,
+        "iduser": 5,
+        "checkinTime": "2025-10-19T13:07:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 5,
+          "name": "Student 5",
+          "email": "student05@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 2032,
+        "idactivity": 203,
+        "iduser": 21,
+        "checkinTime": "2025-10-26T22:16:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 21,
+          "name": "Student 21",
+          "email": "student21@example.com"
+        },
+        "activity": {
+          "id": 203,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 2033,
+        "idactivity": 200,
+        "iduser": 23,
+        "checkinTime": "2025-10-21T17:29:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 23,
+          "name": "Student 23",
+          "email": "student23@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 2034,
+        "idactivity": 227,
+        "iduser": 25,
+        "checkinTime": "2025-10-26T21:22:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 25,
+          "name": "Student 25",
+          "email": "student25@example.com"
+        },
+        "activity": {
+          "id": 227,
+          "name": "Cuộc thi Lập trình ACM nội bộ"
+        }
+      },
+      {
+        "id": 2035,
+        "idactivity": 200,
+        "iduser": 21,
+        "checkinTime": "2025-10-21T17:10:50.560Z",
+        "method": "staff",
+        "user": {
+          "id": 21,
+          "name": "Student 21",
+          "email": "student21@example.com"
+        },
+        "activity": {
+          "id": 200,
+          "name": "Talkshow Sự nghiệp Data Engineer"
+        }
+      },
+      {
+        "id": 2036,
+        "idactivity": 224,
+        "iduser": 25,
+        "checkinTime": "2025-10-26T22:51:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 25,
+          "name": "Student 25",
+          "email": "student25@example.com"
+        },
+        "activity": {
+          "id": 224,
+          "name": "Seminar Cloud & Kubernetes"
+        }
+      },
+      {
+        "id": 2037,
+        "idactivity": 219,
+        "iduser": 17,
+        "checkinTime": "2025-10-26T20:05:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 17,
+          "name": "Student 17",
+          "email": "student17@example.com"
+        },
+        "activity": {
+          "id": 219,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 2038,
+        "idactivity": 219,
+        "iduser": 2,
+        "checkinTime": "2025-10-26T19:43:50.560Z",
+        "method": "manual",
+        "user": {
+          "id": 2,
+          "name": "Admin User",
+          "email": "admin@example.com"
+        },
+        "activity": {
+          "id": 219,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 2039,
+        "idactivity": 205,
+        "iduser": 16,
+        "checkinTime": "2025-10-19T12:24:50.560Z",
+        "method": "qr",
+        "user": {
+          "id": 16,
+          "name": "Student 16",
+          "email": "student16@example.com"
+        },
+        "activity": {
+          "id": 205,
+          "name": "Seminar An toàn thông tin"
+        }
+      },
+      {
+        "id": 3,
+        "idactivity": 66,
+        "iduser": 38,
+        "checkinTime": "2025-10-27T01:58:00.615Z",
+        "method": "QR_CODE",
+        "user": {
+          "id": 38,
+          "name": "Test User",
+          "email": "test@example.com"
+        },
+        "activity": {
+          "id": 66,
+          "name": "Test Activity"
+        }
+      }
+    ]
+  }
+}

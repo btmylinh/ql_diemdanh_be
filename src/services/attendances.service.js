@@ -55,6 +55,151 @@ class AttendancesService {
     }
   }
 
+  // Điểm danh bằng mã code cho sinh viên
+  async checkinByCode(input, user) {
+    try {
+      const userId = user.sub;
+      const { activityId, code } = input;
+      
+      if (!activityId || !code) {
+        return { error: { code: 400, message: 'Activity ID và mã code là bắt buộc' } };
+      }
+      
+      const activityIdNum = parseInt(activityId);
+      if (isNaN(activityIdNum)) {
+        return { error: { code: 400, message: 'Activity ID không hợp lệ' } };
+      }
+      
+      // Tìm hoạt động
+      const activity = await prisma.activity.findUnique({
+        where: { id: activityIdNum },
+        select: { 
+          id: true, 
+          name: true, 
+          startTime: true, 
+          endTime: true, 
+          status: true,
+          attendanceCode: true 
+        }
+      });
+      
+      if (!activity) {
+        return { error: { code: 404, message: 'Không tìm thấy hoạt động' } };
+      }
+      
+      // Kiểm tra mã code
+      if (activity.attendanceCode !== code) {
+        return { error: { code: 400, message: 'Mã code không đúng' } };
+      }
+      
+      // Kiểm tra đăng ký
+      const registration = await prisma.registration.findUnique({
+        where: { 
+          idactivity_iduser: { 
+            idactivity: activityIdNum, 
+            iduser: userId 
+          } 
+        },
+        include: { 
+          activity: { 
+            select: { 
+              id: true, 
+              name: true, 
+              startTime: true, 
+              endTime: true, 
+              status: true 
+            } 
+          } 
+        }
+      });
+      
+      if (!registration) {
+        return { error: { code: 400, message: 'Bạn chưa đăng ký tham gia hoạt động này' } };
+      }
+      
+      if (registration.status !== '1') {
+        return { error: { code: 400, message: 'Đăng ký của bạn đã bị hủy, không thể điểm danh' } };
+      }
+      
+      // Kiểm tra trạng thái hoạt động
+      if (activity.status !== 2) {
+        return { error: { code: 400, message: 'Chỉ có thể điểm danh khi hoạt động đang diễn ra' } };
+      }
+      
+      // Kiểm tra thời gian
+      const now = new Date();
+      if (now < activity.startTime) {
+        return { error: { code: 400, message: 'Hoạt động chưa bắt đầu' } };
+      }
+      if (now > activity.endTime) {
+        return { error: { code: 400, message: 'Hoạt động đã kết thúc' } };
+      }
+      
+      // Kiểm tra đã điểm danh chưa
+      const existingAttendance = await prisma.attendance.findFirst({
+        where: { idactivity: activityIdNum, iduser: userId }
+      });
+      
+      if (existingAttendance) {
+        return { 
+          error: { 
+            code: 409, 
+            message: 'Bạn đã điểm danh rồi', 
+            attendance: { 
+              id: existingAttendance.id, 
+              checkinTime: existingAttendance.checkinTime, 
+              method: existingAttendance.method 
+            } 
+          } 
+        };
+      }
+      
+      // Tạo điểm danh
+      const attendance = await prisma.attendance.create({
+        data: {
+          idactivity: activityIdNum,
+          iduser: userId,
+          checkinTime: now,
+          method: 'code'
+        },
+        include: {
+          activity: { 
+            select: { 
+              id: true, 
+              name: true, 
+              startTime: true, 
+              endTime: true, 
+              location: true 
+            } 
+          },
+          user: { 
+            select: { 
+              id: true, 
+              name: true, 
+              email: true, 
+              mssv: true, 
+              class: true 
+            } 
+          }
+        }
+      });
+      
+      return {
+        message: 'Điểm danh thành công',
+        attendance: {
+          id: attendance.id,
+          checkinTime: attendance.checkinTime,
+          method: attendance.method,
+          activity: attendance.activity,
+          user: attendance.user
+        }
+      };
+    } catch (error) {
+      console.error('Error in checkinByCode:', error);
+      return { error: { code: 500, message: 'Lỗi server' } };
+    }
+  }
+
   async getMyAttendances(query, user) {
     try {
       const userId = user.sub;
